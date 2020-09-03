@@ -68,7 +68,6 @@ Class | Method | HTTP request | Description
 *CapacitiesApi* | [**getCapacity**](docs//CapacitiesApi.md#getcapacity) | **GET** /locations/{location_id}/capacities | Get the current capacity details for a location
 *CapacitiesApi* | [**getCapacityForecast**](docs//CapacitiesApi.md#getcapacityforecast) | **GET** /locations/{location_id}/capacity_forecasts | Get the capacity details for a location
 *EmailTemplatesApi* | [**getEmailTemplates**](docs//EmailTemplatesApi.md#getemailtemplates) | **GET** /email_templates | List all EmailTemplates
-*GuestAlertsApi* | [**createGuestAlert**](docs//GuestAlertsApi.md#createguestalert) | **POST** /guest_alerts | Create GuestAlert
 *HostsApi* | [**createHost**](docs//HostsApi.md#createhost) | **POST** /hosts | Create a Host
 *HostsApi* | [**createHosts**](docs//HostsApi.md#createhosts) | **POST** /hosts/batch | Create multiple Hosts
 *HostsApi* | [**getHosts**](docs//HostsApi.md#gethosts) | **GET** /hosts | List all Hosts
@@ -114,9 +113,6 @@ Class | Method | HTTP request | Description
  - [ErrorsList](docs//ErrorsList.md)
  - [ExternalWatchlistResult](docs//ExternalWatchlistResult.md)
  - [GroupVisit](docs//GroupVisit.md)
- - [GuestAlertCreateParams](docs//GuestAlertCreateParams.md)
- - [GuestAlertDetail](docs//GuestAlertDetail.md)
- - [GuestAlertSigninSelectors](docs//GuestAlertSigninSelectors.md)
  - [GuestResponse](docs//GuestResponse.md)
  - [Host](docs//Host.md)
  - [HostBatchCreateParams](docs//HostBatchCreateParams.md)
