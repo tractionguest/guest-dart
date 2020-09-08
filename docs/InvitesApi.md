@@ -9,6 +9,7 @@ All URIs are relative to *https://tractionguest.ca/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**batchDeleteInvites**](InvitesApi.md#batchDeleteInvites) | **POST** /invites/batch_delete | Delete Multiple Invites
 [**createLocationInvite**](InvitesApi.md#createLocationInvite) | **POST** /locations/{location_id}/invites | Create an Invite
 [**createRegistrationInvite**](InvitesApi.md#createRegistrationInvite) | **POST** /registrations/{registration_id}/invites | Create an Invite from a Registration
 [**deleteInvite**](InvitesApi.md#deleteInvite) | **DELETE** /invites/{invite_id} | Deletes an Invite
@@ -16,6 +17,49 @@ Method | HTTP request | Description
 [**getInvites**](InvitesApi.md#getInvites) | **GET** /invites | List all Invites
 [**updateInvite**](InvitesApi.md#updateInvite) | **PUT** /invites/{invite_id} | Update an Invite
 
+
+# **batchDeleteInvites**
+> BatchJob batchDeleteInvites(identifierList)
+
+Delete Multiple Invites
+
+Queues up a \"delete\" background task for one or more `Invite` entities.
+
+### Example 
+```dart
+import 'package:guest_sdk/api.dart';
+
+var api_instance = new InvitesApi();
+var identifierList = new IdentifierList(); // IdentifierList | 
+
+try { 
+    var result = api_instance.batchDeleteInvites(identifierList);
+    print(result);
+} catch (e) {
+    print("Exception when calling InvitesApi->batchDeleteInvites: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **identifierList** | [**IdentifierList**](IdentifierList.md)|  | [optional] 
+
+### Return type
+
+[**BatchJob**](BatchJob.md)
+
+### Authorization
+
+[TractionGuestAuth](../README.md#TractionGuestAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createLocationInvite**
 > InviteDetail createLocationInvite(locationId, inviteCreateParams, idempotencyKey)

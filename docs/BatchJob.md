@@ -14,6 +14,9 @@ Name | Type | Description | Notes
 **totalRecords** | **int** |  | [optional] [default to null]
 **workerName** | **String** |  | [optional] [default to null]
 **user** | [**User**](User.md) |  | [optional] [default to null]
+**pending** | **int** |  | [optional] [default to null]
+**completed** | **int** |  | [optional] [default to null]
+**failed** | **int** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
