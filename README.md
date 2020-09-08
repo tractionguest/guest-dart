@@ -17,7 +17,7 @@ Dart 1.20.0 or later OR Flutter 0.0.20 or later
 If this Dart package is published to Github, please include the following in pubspec.yaml
 ```
 name: guest_sdk
-version: 
+version: 0.14.0
 description: OpenAPI API client
 dependencies:
   guest_sdk:
