@@ -9,8 +9,8 @@ import 'package:guest_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [default to null]
-**internal** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
-**external_** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**internal** | [**List&lt;InternalWatchlistResult&gt;**](InternalWatchlistResult.md) |  | [optional] [default to []]
+**external_** | [**List&lt;ExternalWatchlistResult&gt;**](ExternalWatchlistResult.md) |  | [optional] [default to []]
 **internalColours** | **List&lt;String&gt;** | Deprecated | [optional] [default to []]
 **externalColours** | **List&lt;String&gt;** | Deprecated | [optional] [default to []]
 

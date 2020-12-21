@@ -9,10 +9,10 @@ import 'package:guest_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **mobileNumber** | **String** |  | [optional] [default to null]
-**notificationTriggers** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**notificationTriggers** | [**List&lt;NotificationTriggerCreateParams&gt;**](NotificationTriggerCreateParams.md) |  | [optional] [default to []]
 **firstName** | **String** |  | [default to null]
 **emailTemplateId** | **int** |  | [optional] [default to null]
-**customFields** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**customFields** | [**List&lt;CustomField&gt;**](CustomField.md) |  | [optional] [default to []]
 **hostIds** | **List&lt;int&gt;** |  | [optional] [default to []]
 **watchlistColour** | **String** |  | [optional] [default to null]
 **title** | **String** |  | [optional] [default to null]

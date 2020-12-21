@@ -9,8 +9,8 @@ import 'package:guest_sdk/api.dart';
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] [default to null]
-**location** | [**Object**](Object.md) |  | [optional] [default to null]
-**hosts** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**location** | [**Location**](Location.md) |  | [optional] [default to null]
+**hosts** | [**List&lt;Host&gt;**](Host.md) |  | [optional] [default to []]
 **name** | **String** |  | [optional] [default to null]
 **startTime** | **String** |  | [optional] [default to null]
 **endTime** | **String** |  | [optional] [default to null]

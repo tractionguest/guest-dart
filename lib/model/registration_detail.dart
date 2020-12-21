@@ -20,7 +20,7 @@ class RegistrationDetail {
   /* Datetime when registration was created */
   DateTime createdAt = null;
   
-  Object signin = null;
+  Signin signin = null;
   RegistrationDetail();
 
   @override
@@ -78,7 +78,7 @@ class RegistrationDetail {
     if (json['signin'] == null) {
       signin = null;
     } else {
-      signin = new Object.fromJson(json['signin']);
+      signin = new Signin.fromJson(json['signin']);
     }
   }
 

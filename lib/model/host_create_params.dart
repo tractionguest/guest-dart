@@ -9,7 +9,7 @@ class HostCreateParams {
   String lastName = null;
   
   String profilePicUrl = null;
-  
+  /*  */
   String department = null;
   
   String mobileNumber = null;

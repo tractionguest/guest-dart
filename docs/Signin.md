@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [default to null]
 **mobileNumber** | **String** |  | [optional] [default to null]
 **signinWatchlist** | [**SigninWatchlist**](SigninWatchlist.md) |  | [optional] [default to null]
-**hosts** | [**List&lt;Object&gt;**](Object.md) |  | [default to []]
+**hosts** | [**List&lt;Host&gt;**](Host.md) |  | [default to []]
 **signinTimestamp** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 **signinPhotoUrl** | **String** |  | [optional] [default to null]
 **signedOutTimestamp** | [**DateTime**](DateTime.md) |  | [optional] [default to null]

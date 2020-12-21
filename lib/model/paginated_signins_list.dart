@@ -2,9 +2,9 @@ part of guest_sdk.api;
 
 class PaginatedSigninsList {
   
-  Object pagination = null;
+  Pagination pagination = null;
   
-  List<Object> signins = [];
+  List<Signin> signins = [];
   PaginatedSigninsList();
 
   @override
@@ -17,12 +17,12 @@ class PaginatedSigninsList {
     if (json['pagination'] == null) {
       pagination = null;
     } else {
-      pagination = new Object.fromJson(json['pagination']);
+      pagination = new Pagination.fromJson(json['pagination']);
     }
     if (json['signins'] == null) {
       signins = null;
     } else {
-      signins = Object.listFromJson(json['signins']);
+      signins = Signin.listFromJson(json['signins']);
     }
   }
 

@@ -4,13 +4,13 @@ class InviteCreateParams {
   
   String mobileNumber = null;
   
-  List<Object> notificationTriggers = [];
+  List<NotificationTriggerCreateParams> notificationTriggers = [];
   
   String firstName = null;
   
   int emailTemplateId = null;
   
-  List<Object> customFields = [];
+  List<CustomField> customFields = [];
   
   List<int> hostIds = [];
   
@@ -47,7 +47,7 @@ class InviteCreateParams {
     if (json['notification_triggers'] == null) {
       notificationTriggers = null;
     } else {
-      notificationTriggers = Object.listFromJson(json['notification_triggers']);
+      notificationTriggers = NotificationTriggerCreateParams.listFromJson(json['notification_triggers']);
     }
     if (json['first_name'] == null) {
       firstName = null;
@@ -62,7 +62,7 @@ class InviteCreateParams {
     if (json['custom_fields'] == null) {
       customFields = null;
     } else {
-      customFields = Object.listFromJson(json['custom_fields']);
+      customFields = CustomField.listFromJson(json['custom_fields']);
     }
     if (json['host_ids'] == null) {
       hostIds = null;

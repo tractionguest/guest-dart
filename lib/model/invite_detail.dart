@@ -4,7 +4,7 @@ class InviteDetail {
   
   int id = null;
   
-  Object registration = null;
+  Registration registration = null;
   /* Phone number */
   String mobileNumber = null;
   
@@ -14,14 +14,14 @@ class InviteDetail {
   /* List of scheduled notifications for an invite */
   List<NotificationTrigger> notificationTriggers = [];
   
-  List<Object> customFields = [];
+  List<CustomField> customFields = [];
   
   String watchlistColour = null;
   //enum watchlistColourEnum {  RED,  GREEN,  YELLOW,  ORANGE,  };{
   
-  Object location = null;
+  Location location = null;
   
-  List<Object> hosts = [];
+  List<Host> hosts = [];
   
   DateTime startDate = null;
   
@@ -55,7 +55,7 @@ class InviteDetail {
     if (json['registration'] == null) {
       registration = null;
     } else {
-      registration = new Object.fromJson(json['registration']);
+      registration = new Registration.fromJson(json['registration']);
     }
     if (json['mobile_number'] == null) {
       mobileNumber = null;
@@ -80,7 +80,7 @@ class InviteDetail {
     if (json['custom_fields'] == null) {
       customFields = null;
     } else {
-      customFields = Object.listFromJson(json['custom_fields']);
+      customFields = CustomField.listFromJson(json['custom_fields']);
     }
     if (json['watchlist_colour'] == null) {
       watchlistColour = null;
@@ -90,12 +90,12 @@ class InviteDetail {
     if (json['location'] == null) {
       location = null;
     } else {
-      location = new Object.fromJson(json['location']);
+      location = new Location.fromJson(json['location']);
     }
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = Object.listFromJson(json['hosts']);
+      hosts = Host.listFromJson(json['hosts']);
     }
     if (json['start_date'] == null) {
       startDate = null;

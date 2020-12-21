@@ -2,9 +2,9 @@ part of guest_sdk.api;
 
 class PaginatedAuditLogsList {
   
-  Object pagination = null;
+  Pagination pagination = null;
   
-  List<Object> auditLogs = [];
+  List<AuditLog> auditLogs = [];
   PaginatedAuditLogsList();
 
   @override
@@ -17,12 +17,12 @@ class PaginatedAuditLogsList {
     if (json['pagination'] == null) {
       pagination = null;
     } else {
-      pagination = new Object.fromJson(json['pagination']);
+      pagination = new Pagination.fromJson(json['pagination']);
     }
     if (json['audit_logs'] == null) {
       auditLogs = null;
     } else {
-      auditLogs = Object.listFromJson(json['audit_logs']);
+      auditLogs = AuditLog.listFromJson(json['audit_logs']);
     }
   }
 

@@ -4,22 +4,22 @@ class Invite {
   
   int id = null;
   
-  Object registration = null;
-  
+  Registration registration = null;
+  /*  */
   String mobileNumber = null;
-  
+  /*  */
   String email = null;
-  
+  /*  */
   DateTime endDate = null;
   
-  Object inviteWatchlist = null;
+  InviteWatchlist inviteWatchlist = null;
   
-  List<Object> hosts = [];
+  List<Host> hosts = [];
   
   String watchlistColour = null;
   //enum watchlistColourEnum {  RED,  GREEN,  YELLOW,  ORANGE,  };{
   
-  Object location = null;
+  Location location = null;
   
   DateTime startDate = null;
   
@@ -27,7 +27,7 @@ class Invite {
   
   String firstName = null;
   
-  Object groupVisit = null;
+  GroupVisit groupVisit = null;
   Invite();
 
   @override
@@ -45,7 +45,7 @@ class Invite {
     if (json['registration'] == null) {
       registration = null;
     } else {
-      registration = new Object.fromJson(json['registration']);
+      registration = new Registration.fromJson(json['registration']);
     }
     if (json['mobile_number'] == null) {
       mobileNumber = null;
@@ -65,12 +65,12 @@ class Invite {
     if (json['invite_watchlist'] == null) {
       inviteWatchlist = null;
     } else {
-      inviteWatchlist = new Object.fromJson(json['invite_watchlist']);
+      inviteWatchlist = new InviteWatchlist.fromJson(json['invite_watchlist']);
     }
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = Object.listFromJson(json['hosts']);
+      hosts = Host.listFromJson(json['hosts']);
     }
     if (json['watchlist_colour'] == null) {
       watchlistColour = null;
@@ -80,7 +80,7 @@ class Invite {
     if (json['location'] == null) {
       location = null;
     } else {
-      location = new Object.fromJson(json['location']);
+      location = new Location.fromJson(json['location']);
     }
     if (json['start_date'] == null) {
       startDate = null;
@@ -100,7 +100,7 @@ class Invite {
     if (json['group_visit'] == null) {
       groupVisit = null;
     } else {
-      groupVisit = new Object.fromJson(json['group_visit']);
+      groupVisit = new GroupVisit.fromJson(json['group_visit']);
     }
   }
 

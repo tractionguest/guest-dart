@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [default to null]
 **documents** | [**List&lt;SignableDocument&gt;**](SignableDocument.md) |  | [optional] [default to []]
-**signinWatchlist** | [**Object**](Object.md) |  | [optional] [default to null]
-**hosts** | [**List&lt;Object&gt;**](Object.md) |  | [optional] [default to []]
+**signinWatchlist** | [**SigninWatchlist**](SigninWatchlist.md) |  | [optional] [default to null]
+**hosts** | [**List&lt;Host&gt;**](Host.md) |  | [optional] [default to []]
 **signinData** | [**List&lt;SigninData&gt;**](SigninData.md) |  | [optional] [default to []]
 **signinAcknowledgement** | [**SigninAcknowledgement**](SigninAcknowledgement.md) |  | [optional] [default to null]
 **note** | **String** |  | [optional] [default to null]
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **firstName** | **String** |  | [optional] [default to null]
 **email** | **String** |  | [optional] [default to null]
 **company** | **String** |  | [optional] [default to null]
-**registration** | [**Object**](Object.md) |  | [optional] [default to null]
+**registration** | [**Registration**](Registration.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

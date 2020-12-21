@@ -190,7 +190,7 @@ class SigninsApi {
   /// Update a Signin
   ///
   /// Update, acknowledge, or &#x60;Signout&#x60; a &#x60;Signin&#x60;
-  Future<Object> updateSignin(String signinId, SigninUpdateParams signinUpdateParams, { String idempotencyKey }) async {
+  Future<SigninDetail> updateSignin(String signinId, SigninUpdateParams signinUpdateParams, { String idempotencyKey }) async {
     Object postBody = signinUpdateParams;
 
     // verify required params are set
@@ -236,7 +236,7 @@ class SigninsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'SigninDetail') as SigninDetail;
     } else {
       return null;
     }

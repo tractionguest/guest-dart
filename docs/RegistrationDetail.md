@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **email** | **String** | E-mail | [optional] [default to null]
 **name** | **String** | Guest&#39;s name | [optional] [default to null]
 **createdAt** | [**DateTime**](DateTime.md) | Datetime when registration was created | [default to null]
-**signin** | [**Object**](Object.md) |  | [optional] [default to null]
+**signin** | [**Signin**](Signin.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

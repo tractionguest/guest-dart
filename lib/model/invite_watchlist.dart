@@ -4,9 +4,9 @@ class InviteWatchlist {
   
   int id = null;
   
-  List<Object> internal = [];
+  List<InternalWatchlistResult> internal = [];
   
-  List<Object> external_ = [];
+  List<ExternalWatchlistResult> external_ = [];
   /* Deprecated */
   List<String> internalColours = [];
   /* Deprecated */
@@ -28,12 +28,12 @@ class InviteWatchlist {
     if (json['internal'] == null) {
       internal = null;
     } else {
-      internal = Object.listFromJson(json['internal']);
+      internal = InternalWatchlistResult.listFromJson(json['internal']);
     }
     if (json['external'] == null) {
       external_ = null;
     } else {
-      external_ = Object.listFromJson(json['external']);
+      external_ = ExternalWatchlistResult.listFromJson(json['external']);
     }
     if (json['internal_colours'] == null) {
       internalColours = null;

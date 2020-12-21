@@ -12,7 +12,7 @@ class BatchJob {
   
   String workerName = null;
   
-  Object user = null;
+  User user = null;
   BatchJob();
 
   @override
@@ -50,7 +50,7 @@ class BatchJob {
     if (json['user'] == null) {
       user = null;
     } else {
-      user = new Object.fromJson(json['user']);
+      user = new User.fromJson(json['user']);
     }
   }
 

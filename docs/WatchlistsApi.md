@@ -5,7 +5,7 @@
 import 'package:guest_sdk/api.dart';
 ```
 
-All URIs are relative to *https://tractionguest.ca/api/v3*
+All URIs are relative to *https://us.tractionguest.com/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,7 +28,7 @@ Create a new `Watchlist` record. Please note, every action taken against this en
 import 'package:guest_sdk/api.dart';
 
 var api_instance = new WatchlistsApi();
-var watchlistCreateParams = new WatchlistCreateParams(); // WatchlistCreateParams | 
+var watchlistCreateParams = new WatchlistCreateParams(); // WatchlistCreateParams | The new `Watchlist` to create
 var idempotencyKey = idempotencyKey_example; // String | An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
 
 try { 
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **watchlistCreateParams** | [**WatchlistCreateParams**](WatchlistCreateParams.md)|  | 
+ **watchlistCreateParams** | [**WatchlistCreateParams**](WatchlistCreateParams.md)| The new &#x60;Watchlist&#x60; to create | 
  **idempotencyKey** | **String**| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] [default to null]
 
 ### Return type
@@ -106,7 +106,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getWatchlist**
-> Object getWatchlist(watchlistId, include)
+> Watchlist getWatchlist(watchlistId, include)
 
 Get a Watchlist
 
@@ -137,7 +137,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Object**](Object.md)
+[**Watchlist**](Watchlist.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateWatchlist**
-> Object updateWatchlist(watchlistId, body, idempotencyKey)
+> Watchlist updateWatchlist(watchlistId, watchlistCreateParams, idempotencyKey)
 
 Update a Watchlist
 
@@ -214,11 +214,11 @@ import 'package:guest_sdk/api.dart';
 
 var api_instance = new WatchlistsApi();
 var watchlistId = watchlistId_example; // String | 
-var body = new Object(); // Object | The watchlist record attributes to update
+var watchlistCreateParams = new WatchlistCreateParams(); // WatchlistCreateParams | The watchlist record attributes to update
 var idempotencyKey = idempotencyKey_example; // String | An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
 
 try { 
-    var result = api_instance.updateWatchlist(watchlistId, body, idempotencyKey);
+    var result = api_instance.updateWatchlist(watchlistId, watchlistCreateParams, idempotencyKey);
     print(result);
 } catch (e) {
     print("Exception when calling WatchlistsApi->updateWatchlist: $e\n");
@@ -230,12 +230,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **watchlistId** | **String**|  | [default to null]
- **body** | **Object**| The watchlist record attributes to update | 
+ **watchlistCreateParams** | [**WatchlistCreateParams**](WatchlistCreateParams.md)| The watchlist record attributes to update | 
  **idempotencyKey** | **String**| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] [default to null]
 
 ### Return type
 
-[**Object**](Object.md)
+[**Watchlist**](Watchlist.md)
 
 ### Authorization
 
