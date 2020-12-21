@@ -10,7 +10,7 @@ class InvitesApi {
   /// Create an Invite
   ///
   /// Creates a new &#x60;Invite&#x60; for a specific &#x60;Location&#x60;.
-  Future<InviteDetail> createLocationInvite(String locationId, InviteCreateParams inviteCreateParams, { String idempotencyKey }) async {
+  Future<Object> createLocationInvite(String locationId, InviteCreateParams inviteCreateParams, { String idempotencyKey }) async {
     Object postBody = inviteCreateParams;
 
     // verify required params are set
@@ -56,7 +56,7 @@ class InvitesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }
@@ -64,7 +64,7 @@ class InvitesApi {
   /// Create an Invite from a Registration
   ///
   /// Creates a new &#x60;Invite&#x60; from &#x60;Registration&#x60; data.
-  Future<InviteDetail> createRegistrationInvite(String registrationId, { String idempotencyKey }) async {
+  Future<Object> createRegistrationInvite(String registrationId, { String idempotencyKey }) async {
     Object postBody;
 
     // verify required params are set
@@ -107,7 +107,7 @@ class InvitesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }
@@ -301,15 +301,15 @@ class InvitesApi {
   /// Update an Invite
   ///
   /// Updates an existing &#x60;Invite&#x60;.
-  Future<InviteDetail> updateInvite(String inviteId, InviteUpdateParams inviteUpdateParams, { String idempotencyKey }) async {
-    Object postBody = inviteUpdateParams;
+  Future<Object> updateInvite(String inviteId, InviteCreateParams1 inviteCreateParams1, { String idempotencyKey }) async {
+    Object postBody = inviteCreateParams1;
 
     // verify required params are set
     if(inviteId == null) {
      throw new ApiException(400, "Missing required param: inviteId");
     }
-    if(inviteUpdateParams == null) {
-     throw new ApiException(400, "Missing required param: inviteUpdateParams");
+    if(inviteCreateParams1 == null) {
+     throw new ApiException(400, "Missing required param: inviteCreateParams1");
     }
 
     // create path and map variables
@@ -347,7 +347,7 @@ class InvitesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }

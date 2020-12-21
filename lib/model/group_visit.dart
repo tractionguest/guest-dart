@@ -4,9 +4,9 @@ class GroupVisit {
   
   int id = null;
   
-  Location location = null;
+  Object location = null;
   
-  List<Host> hosts = [];
+  List<Object> hosts = [];
   
   String name = null;
   
@@ -34,12 +34,12 @@ class GroupVisit {
     if (json['location'] == null) {
       location = null;
     } else {
-      location = new Location.fromJson(json['location']);
+      location = new Object.fromJson(json['location']);
     }
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = Host.listFromJson(json['hosts']);
+      hosts = Object.listFromJson(json['hosts']);
     }
     if (json['name'] == null) {
       name = null;

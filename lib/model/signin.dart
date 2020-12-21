@@ -8,7 +8,7 @@ class Signin {
   
   SigninWatchlist signinWatchlist = null;
   
-  List<Host> hosts = [];
+  List<Object> hosts = [];
   
   DateTime signinTimestamp = null;
   
@@ -58,7 +58,7 @@ class Signin {
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = Host.listFromJson(json['hosts']);
+      hosts = Object.listFromJson(json['hosts']);
     }
     if (json['signin_timestamp'] == null) {
       signinTimestamp = null;

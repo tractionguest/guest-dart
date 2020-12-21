@@ -2,7 +2,7 @@ part of guest_sdk.api;
 
 class SigninData {
   
-  List<CustomField> customFields = [];
+  List<Object> customFields = [];
   
   String name = null;
   SigninData();
@@ -17,7 +17,7 @@ class SigninData {
     if (json['custom_fields'] == null) {
       customFields = null;
     } else {
-      customFields = CustomField.listFromJson(json['custom_fields']);
+      customFields = Object.listFromJson(json['custom_fields']);
     }
     if (json['name'] == null) {
       name = null;

@@ -7,7 +7,7 @@ class NotificationTrigger {
   /* The amount to offset the notification from the event */
   int offsetAmount = null;
   /* Whether the offset should be calculated from the start, or finish of the event */
-  Object offsetOrigin = null;
+  String offsetOrigin = null;
   //enum offsetOriginEnum {  START,  END,  };{
   
   int emailTemplateId = null;

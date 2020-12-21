@@ -6,9 +6,9 @@ class SigninDetail {
   
   List<SignableDocument> documents = [];
   
-  SigninWatchlist signinWatchlist = null;
+  Object signinWatchlist = null;
   
-  List<Host> hosts = [];
+  List<Object> hosts = [];
   
   List<SigninData> signinData = [];
   
@@ -40,7 +40,7 @@ class SigninDetail {
   
   String company = null;
   
-  Registration registration = null;
+  Object registration = null;
   SigninDetail();
 
   @override
@@ -63,12 +63,12 @@ class SigninDetail {
     if (json['signin_watchlist'] == null) {
       signinWatchlist = null;
     } else {
-      signinWatchlist = new SigninWatchlist.fromJson(json['signin_watchlist']);
+      signinWatchlist = new Object.fromJson(json['signin_watchlist']);
     }
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = Host.listFromJson(json['hosts']);
+      hosts = Object.listFromJson(json['hosts']);
     }
     if (json['signin_data'] == null) {
       signinData = null;
@@ -148,7 +148,7 @@ class SigninDetail {
     if (json['registration'] == null) {
       registration = null;
     } else {
-      registration = new Registration.fromJson(json['registration']);
+      registration = new Object.fromJson(json['registration']);
     }
   }
 

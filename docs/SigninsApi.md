@@ -27,7 +27,7 @@ Creates a Signin
 import 'package:guest_sdk/api.dart';
 
 var api_instance = new SigninsApi();
-var signinCreateParams = new SigninCreateParams(); // SigninCreateParams | Params for creating a Signin can omit certain fields if a `registration_id` is present.
+var signinCreateParams = new SigninCreateParams(); // SigninCreateParams | 
 
 try { 
     var result = api_instance.createSignin(signinCreateParams);
@@ -41,7 +41,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **signinCreateParams** | [**SigninCreateParams**](SigninCreateParams.md)| Params for creating a Signin can omit certain fields if a &#x60;registration_id&#x60; is present. | [optional] 
+ **signinCreateParams** | [**SigninCreateParams**](SigninCreateParams.md)|  | [optional] 
 
 ### Return type
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateSignin**
-> SigninDetail updateSignin(signinId, signinUpdateParams, idempotencyKey)
+> Object updateSignin(signinId, signinUpdateParams, idempotencyKey)
 
 Update a Signin
 
@@ -179,7 +179,7 @@ import 'package:guest_sdk/api.dart';
 
 var api_instance = new SigninsApi();
 var signinId = signinId_example; // String | 
-var signinUpdateParams = new SigninUpdateParams(); // SigninUpdateParams | The only updatable values for a `Signin` are `badge_number`, `badge_returned`, `is_accounted_for`, `is_signed_out`, and `is_acknowledged`.  `is_signed_out` and `is_acknowledged` are pseudo attributes that once set to true, are irreversible.
+var signinUpdateParams = new SigninUpdateParams(); // SigninUpdateParams | 
 var idempotencyKey = idempotencyKey_example; // String | An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
 
 try { 
@@ -195,12 +195,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **signinId** | **String**|  | [default to null]
- **signinUpdateParams** | [**SigninUpdateParams**](SigninUpdateParams.md)| The only updatable values for a &#x60;Signin&#x60; are &#x60;badge_number&#x60;, &#x60;badge_returned&#x60;, &#x60;is_accounted_for&#x60;, &#x60;is_signed_out&#x60;, and &#x60;is_acknowledged&#x60;.  &#x60;is_signed_out&#x60; and &#x60;is_acknowledged&#x60; are pseudo attributes that once set to true, are irreversible. | 
+ **signinUpdateParams** | [**SigninUpdateParams**](SigninUpdateParams.md)|  | 
  **idempotencyKey** | **String**| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] [default to null]
 
 ### Return type
 
-[**SigninDetail**](SigninDetail.md)
+[**Object**](Object.md)
 
 ### Authorization
 

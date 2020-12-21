@@ -2,9 +2,9 @@ part of guest_sdk.api;
 
 class PaginatedWatchlistList {
   
-  List<Watchlist> watchlists = [];
+  List<Object> watchlists = [];
   
-  Pagination pagination = null;
+  Object pagination = null;
   PaginatedWatchlistList();
 
   @override
@@ -17,12 +17,12 @@ class PaginatedWatchlistList {
     if (json['watchlists'] == null) {
       watchlists = null;
     } else {
-      watchlists = Watchlist.listFromJson(json['watchlists']);
+      watchlists = Object.listFromJson(json['watchlists']);
     }
     if (json['pagination'] == null) {
       pagination = null;
     } else {
-      pagination = new Pagination.fromJson(json['pagination']);
+      pagination = new Object.fromJson(json['pagination']);
     }
   }
 

@@ -2,7 +2,7 @@ part of guest_sdk.api;
 
 class HostBatchCreateParams {
   
-  List<HostCreateParams> hosts = [];
+  List<Object> hosts = [];
   HostBatchCreateParams();
 
   @override
@@ -15,7 +15,7 @@ class HostBatchCreateParams {
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = HostCreateParams.listFromJson(json['hosts']);
+      hosts = Object.listFromJson(json['hosts']);
     }
   }
 

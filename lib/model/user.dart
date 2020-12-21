@@ -6,10 +6,10 @@ class User {
   /* Identifies if user has access to mobile app features. */
   bool mobileAccessEnabled = null;
   
-  List<PermissionGroup> permissionGroups = [];
-  /*  */
+  List<Permission> permissionGroups = [];
+  
   String email = null;
-  /*  */
+  
   String lastName = null;
   /* Determines if the registration portal has been enabled for this account */
   String firstName = null;
@@ -39,7 +39,7 @@ class User {
     if (json['permission_groups'] == null) {
       permissionGroups = null;
     } else {
-      permissionGroups = PermissionGroup.listFromJson(json['permission_groups']);
+      permissionGroups = Permission.listFromJson(json['permission_groups']);
     }
     if (json['email'] == null) {
       email = null;

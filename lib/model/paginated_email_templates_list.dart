@@ -2,9 +2,9 @@ part of guest_sdk.api;
 
 class PaginatedEmailTemplatesList {
   
-  Pagination pagination = null;
+  Object pagination = null;
   
-  List<EmailTemplate> emailTemplates = [];
+  List<Object> emailTemplates = [];
   PaginatedEmailTemplatesList();
 
   @override
@@ -17,12 +17,12 @@ class PaginatedEmailTemplatesList {
     if (json['pagination'] == null) {
       pagination = null;
     } else {
-      pagination = new Pagination.fromJson(json['pagination']);
+      pagination = new Object.fromJson(json['pagination']);
     }
     if (json['email_templates'] == null) {
       emailTemplates = null;
     } else {
-      emailTemplates = EmailTemplate.listFromJson(json['email_templates']);
+      emailTemplates = Object.listFromJson(json['email_templates']);
     }
   }
 

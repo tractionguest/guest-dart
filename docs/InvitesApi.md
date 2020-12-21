@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **createLocationInvite**
-> InviteDetail createLocationInvite(locationId, inviteCreateParams, idempotencyKey)
+> Object createLocationInvite(locationId, inviteCreateParams, idempotencyKey)
 
 Create an Invite
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InviteDetail**](InviteDetail.md)
+[**Object**](Object.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **createRegistrationInvite**
-> InviteDetail createRegistrationInvite(registrationId, idempotencyKey)
+> Object createRegistrationInvite(registrationId, idempotencyKey)
 
 Create an Invite from a Registration
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InviteDetail**](InviteDetail.md)
+[**Object**](Object.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updateInvite**
-> InviteDetail updateInvite(inviteId, inviteUpdateParams, idempotencyKey)
+> Object updateInvite(inviteId, inviteCreateParams1, idempotencyKey)
 
 Update an Invite
 
@@ -276,11 +276,11 @@ import 'package:guest_sdk/api.dart';
 
 var api_instance = new InvitesApi();
 var inviteId = inviteId_example; // String | 
-var inviteUpdateParams = new InviteUpdateParams(); // InviteUpdateParams | Updated `Invite` information.
+var inviteCreateParams1 = new InviteCreateParams1(); // InviteCreateParams1 | 
 var idempotencyKey = idempotencyKey_example; // String | An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
 
 try { 
-    var result = api_instance.updateInvite(inviteId, inviteUpdateParams, idempotencyKey);
+    var result = api_instance.updateInvite(inviteId, inviteCreateParams1, idempotencyKey);
     print(result);
 } catch (e) {
     print("Exception when calling InvitesApi->updateInvite: $e\n");
@@ -292,12 +292,12 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **inviteId** | **String**|  | [default to null]
- **inviteUpdateParams** | [**InviteUpdateParams**](InviteUpdateParams.md)| Updated &#x60;Invite&#x60; information. | 
+ **inviteCreateParams1** | [**InviteCreateParams1**](InviteCreateParams1.md)|  | 
  **idempotencyKey** | **String**| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] [default to null]
 
 ### Return type
 
-[**InviteDetail**](InviteDetail.md)
+[**Object**](Object.md)
 
 ### Authorization
 

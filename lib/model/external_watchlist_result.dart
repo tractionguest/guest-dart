@@ -3,10 +3,10 @@ part of guest_sdk.api;
 class ExternalWatchlistResult {
   
   List<WatchlistMatch> matches = [];
-  /*  */
+  
   String colour = null;
   //enum colourEnum {  RED,  GREEN,  YELLOW,  ORANGE,  };{
-  /*  */
+  
   String integration = null;
   
   WatchlistSearch searchTerms = null;

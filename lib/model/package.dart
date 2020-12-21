@@ -4,9 +4,9 @@ class Package {
   
   int id = null;
   
-  Host recipient = null;
+  Object recipient = null;
   
-  Location location = null;
+  Object location = null;
   /* this can be one of the following states: 'processing', 'recipient_matched', 'needs_attention' or 'picked_up' */
   String packageState = null;
   //enum packageStateEnum {  processing,  recipient_matched,  needs_attention,  picked_up,  };{
@@ -17,7 +17,7 @@ class Package {
   
   DateTime createdAt = null;
   
-  Image image = null;
+  Object image = null;
   Package();
 
   @override
@@ -35,12 +35,12 @@ class Package {
     if (json['recipient'] == null) {
       recipient = null;
     } else {
-      recipient = new Host.fromJson(json['recipient']);
+      recipient = new Object.fromJson(json['recipient']);
     }
     if (json['location'] == null) {
       location = null;
     } else {
-      location = new Location.fromJson(json['location']);
+      location = new Object.fromJson(json['location']);
     }
     if (json['package_state'] == null) {
       packageState = null;
@@ -65,7 +65,7 @@ class Package {
     if (json['image'] == null) {
       image = null;
     } else {
-      image = new Image.fromJson(json['image']);
+      image = new Object.fromJson(json['image']);
     }
   }
 

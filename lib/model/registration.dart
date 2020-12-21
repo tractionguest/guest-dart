@@ -4,9 +4,9 @@ class Registration {
   /* Registration unique identifier */
   String id = null;
   
-  Visitor visitor = null;
+  Object visitor = null;
   
-  Invite invite = null;
+  Object invite = null;
   /* URL of the uploaded photo */
   String photoUrl = null;
   /* Company's name */
@@ -18,7 +18,7 @@ class Registration {
   /* Datetime when registration was created */
   DateTime createdAt = null;
   
-  Signin signin = null;
+  Object signin = null;
   Registration();
 
   @override
@@ -36,12 +36,12 @@ class Registration {
     if (json['visitor'] == null) {
       visitor = null;
     } else {
-      visitor = new Visitor.fromJson(json['visitor']);
+      visitor = new Object.fromJson(json['visitor']);
     }
     if (json['invite'] == null) {
       invite = null;
     } else {
-      invite = new Invite.fromJson(json['invite']);
+      invite = new Object.fromJson(json['invite']);
     }
     if (json['photo_url'] == null) {
       photoUrl = null;
@@ -71,7 +71,7 @@ class Registration {
     if (json['signin'] == null) {
       signin = null;
     } else {
-      signin = new Signin.fromJson(json['signin']);
+      signin = new Object.fromJson(json['signin']);
     }
   }
 

@@ -4,7 +4,7 @@ class PaginatedHostsList {
   
   Pagination pagination = null;
   
-  List<Host> hosts = [];
+  List<Object> hosts = [];
   PaginatedHostsList();
 
   @override
@@ -22,7 +22,7 @@ class PaginatedHostsList {
     if (json['hosts'] == null) {
       hosts = null;
     } else {
-      hosts = Host.listFromJson(json['hosts']);
+      hosts = Object.listFromJson(json['hosts']);
     }
   }
 

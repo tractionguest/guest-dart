@@ -1,29 +1,29 @@
 part of guest_sdk.api;
 
 class AuditLog {
-  /*  */
+  
   int id = null;
-  /*  */
+  
   String createdAt = null;
-  /*  */
+  
   String requestUuid = null;
-  /*  */
+  
   String remoteAddress = null;
-  /*  */
+  
   String comment = null;
-  /*  */
+  
   int version = null;
   
   List<AuditLogChange> auditedChanges = [];
-  /*  */
+  
   String action = null;
-  /*  */
+  
   String username = null;
-  /*  */
+  
   int userId = null;
-  /*  */
+  
   String auditableType = null;
-  /*  */
+  
   int auditableId = null;
   AuditLog();
 

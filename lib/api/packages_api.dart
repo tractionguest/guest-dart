@@ -10,8 +10,8 @@ class PackagesApi {
   /// Create package
   ///
   /// Creates a [Package] entity by extracting information about the recipient and carrier from the given image file.
-  Future<Package> createPackage({ PackageCreateParams packageCreateParams }) async {
-    Object postBody = packageCreateParams;
+  Future<Package> createPackage({ UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE }) async {
+    Object postBody = UNKNOWN_BASE_TYPE;
 
     // verify required params are set
 
@@ -107,7 +107,7 @@ class PackagesApi {
   /// Get Package
   ///
   /// Gets the details of a single instance of a Package
-  Future<Package> getPackage(String packageId, { String include }) async {
+  Future<Object> getPackage(String packageId, { String include }) async {
     Object postBody;
 
     // verify required params are set
@@ -152,7 +152,7 @@ class PackagesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Package') as Package;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }
@@ -225,8 +225,8 @@ class PackagesApi {
   /// Update Package
   ///
   /// Update/Edit information about a Package.  picked_up - changes the package_state to picked up and assigns non null value to picked_up_at  recipient_id - update the package&#39;s intended recipient. Changes package_state to &#39;recipient_matched&#39; if a match hasn&#39;t been found and notifies host about their package via email. A previous recipient will stop getting notifications  carrier_name - change/update the package&#39;s carrier/courier information    
-  Future<Package> updatePackage(String packageId, { String idempotencyKey, PackageUpdateParams packageUpdateParams }) async {
-    Object postBody = packageUpdateParams;
+  Future<Object> updatePackage(String packageId, { String idempotencyKey, UNKNOWN_BASE_TYPE UNKNOWN_BASE_TYPE }) async {
+    Object postBody = UNKNOWN_BASE_TYPE;
 
     // verify required params are set
     if(packageId == null) {
@@ -268,7 +268,7 @@ class PackagesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Package') as Package;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **createPackage**
-> Package createPackage(packageCreateParams)
+> Package createPackage(UNKNOWN_BASE_TYPE)
 
 Create package
 
@@ -28,10 +28,10 @@ Creates a [Package] entity by extracting information about the recipient and car
 import 'package:guest_sdk/api.dart';
 
 var api_instance = new PackagesApi();
-var packageCreateParams = new PackageCreateParams(); // PackageCreateParams | Parameters for creating a package
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | Parameters for creating a package
 
 try { 
-    var result = api_instance.createPackage(packageCreateParams);
+    var result = api_instance.createPackage(UNKNOWN_BASE_TYPE);
     print(result);
 } catch (e) {
     print("Exception when calling PackagesApi->createPackage: $e\n");
@@ -42,7 +42,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **packageCreateParams** | [**PackageCreateParams**](PackageCreateParams.md)| Parameters for creating a package | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)| Parameters for creating a package | [optional] 
 
 ### Return type
 
@@ -104,7 +104,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getPackage**
-> Package getPackage(packageId, include)
+> Object getPackage(packageId, include)
 
 Get Package
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Package**](Package.md)
+[**Object**](Object.md)
 
 ### Authorization
 
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **updatePackage**
-> Package updatePackage(packageId, idempotencyKey, packageUpdateParams)
+> Object updatePackage(packageId, idempotencyKey, UNKNOWN_BASE_TYPE)
 
 Update Package
 
@@ -215,10 +215,10 @@ import 'package:guest_sdk/api.dart';
 var api_instance = new PackagesApi();
 var packageId = packageId_example; // String | 
 var idempotencyKey = idempotencyKey_example; // String | An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
-var packageUpdateParams = new PackageUpdateParams(); // PackageUpdateParams | 
+var UNKNOWN_BASE_TYPE = new UNKNOWN_BASE_TYPE(); // UNKNOWN_BASE_TYPE | 
 
 try { 
-    var result = api_instance.updatePackage(packageId, idempotencyKey, packageUpdateParams);
+    var result = api_instance.updatePackage(packageId, idempotencyKey, UNKNOWN_BASE_TYPE);
     print(result);
 } catch (e) {
     print("Exception when calling PackagesApi->updatePackage: $e\n");
@@ -231,11 +231,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **packageId** | **String**|  | [default to null]
  **idempotencyKey** | **String**| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] [default to null]
- **packageUpdateParams** | [**PackageUpdateParams**](PackageUpdateParams.md)|  | [optional] 
+ **UNKNOWN_BASE_TYPE** | [**UNKNOWN_BASE_TYPE**](UNKNOWN_BASE_TYPE.md)|  | [optional] 
 
 ### Return type
 
-[**Package**](Package.md)
+[**Object**](Object.md)
 
 ### Authorization
 

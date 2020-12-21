@@ -4,7 +4,7 @@ class GuestResponse {
   /* UUID */
   String id = null;
   /* Flex fields */
-  List<CustomField> customFields = [];
+  List<Object> customFields = [];
   
   String pageType = null;
   
@@ -28,7 +28,7 @@ class GuestResponse {
     if (json['custom_fields'] == null) {
       customFields = null;
     } else {
-      customFields = CustomField.listFromJson(json['custom_fields']);
+      customFields = Object.listFromJson(json['custom_fields']);
     }
     if (json['page_type'] == null) {
       pageType = null;

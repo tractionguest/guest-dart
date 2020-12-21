@@ -111,7 +111,7 @@ class WatchlistsApi {
   /// Get a Watchlist
   ///
   /// Gets the details of a single instance of a &#x60;Watchlist&#x60;.
-  Future<Watchlist> getWatchlist(String watchlistId, { String include }) async {
+  Future<Object> getWatchlist(String watchlistId, { String include }) async {
     Object postBody;
 
     // verify required params are set
@@ -156,7 +156,7 @@ class WatchlistsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Watchlist') as Watchlist;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }
@@ -226,15 +226,15 @@ class WatchlistsApi {
   /// Update a Watchlist
   ///
   /// Update an existing &#x60;Watchlist&#x60; record. Every operation against this endpoint is recorded in the audit log.
-  Future<Watchlist> updateWatchlist(String watchlistId, WatchlistCreateParams watchlistCreateParams, { String idempotencyKey }) async {
-    Object postBody = watchlistCreateParams;
+  Future<Object> updateWatchlist(String watchlistId, Object body, { String idempotencyKey }) async {
+    Object postBody = body;
 
     // verify required params are set
     if(watchlistId == null) {
      throw new ApiException(400, "Missing required param: watchlistId");
     }
-    if(watchlistCreateParams == null) {
-     throw new ApiException(400, "Missing required param: watchlistCreateParams");
+    if(body == null) {
+     throw new ApiException(400, "Missing required param: body");
     }
 
     // create path and map variables
@@ -272,7 +272,7 @@ class WatchlistsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Watchlist') as Watchlist;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'Object') as Object;
     } else {
       return null;
     }

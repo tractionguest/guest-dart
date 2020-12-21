@@ -71,32 +71,32 @@ class ApiClient {
           return HostBatchCreateParams.fromJson(value);
         case 'HostCreateParams':
           return HostCreateParams.fromJson(value);
-        case 'Image':
-          return Image.fromJson(value);
+        case 'ImageV1':
+          return ImageV1.fromJson(value);
         case 'InternalWatchlistResult':
           return InternalWatchlistResult.fromJson(value);
         case 'Invite':
           return Invite.fromJson(value);
         case 'InviteCreateParams':
           return InviteCreateParams.fromJson(value);
+        case 'InviteCreateParams1':
+          return InviteCreateParams1.fromJson(value);
         case 'InviteDetail':
           return InviteDetail.fromJson(value);
-        case 'InviteUpdateParams':
-          return InviteUpdateParams.fromJson(value);
         case 'InviteWatchlist':
           return InviteWatchlist.fromJson(value);
         case 'Location':
           return Location.fromJson(value);
         case 'NotificationTrigger':
           return NotificationTrigger.fromJson(value);
-        case 'NotificationTriggerCreateParams':
-          return NotificationTriggerCreateParams.fromJson(value);
+        case 'NotificationTrigger1':
+          return NotificationTrigger1.fromJson(value);
         case 'Package':
           return Package.fromJson(value);
-        case 'PackageCreateParams':
-          return PackageCreateParams.fromJson(value);
-        case 'PackageUpdateParams':
-          return PackageUpdateParams.fromJson(value);
+        case 'PackageCreateParamsV1':
+          return PackageCreateParamsV1.fromJson(value);
+        case 'PackageUpdateParamsV1':
+          return PackageUpdateParamsV1.fromJson(value);
         case 'PaginatedAuditLogsList':
           return PaginatedAuditLogsList.fromJson(value);
         case 'PaginatedEmailTemplatesList':
@@ -117,8 +117,8 @@ class ApiClient {
           return PaginatedWatchlistList.fromJson(value);
         case 'Pagination':
           return Pagination.fromJson(value);
-        case 'PermissionGroup':
-          return PermissionGroup.fromJson(value);
+        case 'Permission':
+          return Permission.fromJson(value);
         case 'Registration':
           return Registration.fromJson(value);
         case 'RegistrationDetail':
