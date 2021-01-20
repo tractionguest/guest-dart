@@ -13,6 +13,7 @@ part 'auth/oauth.dart';
 part 'auth/http_basic_auth.dart';
 
 part 'api/audit_logs_api.dart';
+part 'api/batches_api.dart';
 part 'api/capacities_api.dart';
 part 'api/email_templates_api.dart';
 part 'api/hosts_api.dart';
@@ -41,6 +42,7 @@ part 'model/guest_response.dart';
 part 'model/host.dart';
 part 'model/host_batch_create_params.dart';
 part 'model/host_create_params.dart';
+part 'model/identifier_list.dart';
 part 'model/image.dart';
 part 'model/internal_watchlist_result.dart';
 part 'model/invite.dart';
