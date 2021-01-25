@@ -63,7 +63,7 @@ class RegistrationsApi {
   /// List all Registrations
   ///
   /// Gets a list of all &#x60;Registration&#x60; entities.
-  Future<PaginatedRegistrationsList> getRegistrations({ int limit, int offset, String locationIds, String createdBefore, String createdAfter }) async {
+  Future<PaginatedRegistrationsList> getRegistrations({ int limit, int offset, String locationIds, String createdBefore, String createdAfter, bool needsConfirmation }) async {
     Object postBody;
 
     // verify required params are set
@@ -89,6 +89,9 @@ class RegistrationsApi {
     }
     if(createdAfter != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "created_after", createdAfter));
+    }
+    if(needsConfirmation != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "needs_confirmation", needsConfirmation));
     }
 
     List<String> contentTypes = [];
