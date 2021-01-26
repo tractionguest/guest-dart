@@ -2,26 +2,27 @@ part of guest_sdk.api;
 
 
 
-class PackagesApi {
+class GroupVisitsApi {
   final ApiClient apiClient;
 
-  PackagesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  GroupVisitsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  /// Create package
+  /// Create a new Group Visit (Appointment)
   ///
-  /// Creates a [Package] entity by extracting information about the recipient and carrier from the given image file.
-  Future<Package> createPackage({ PackageCreateParams packageCreateParams }) async {
-    Object postBody = packageCreateParams;
+  /// Creates a &#x60;GroupVisit&#x60; (Appointment)
+  Future<GroupVisit> createGroupVisit({ String idempotencyKey, GroupVisitCreateParams groupVisitCreateParams }) async {
+    Object postBody = groupVisitCreateParams;
 
     // verify required params are set
 
     // create path and map variables
-    String path = "/packages".replaceAll("{format}","json");
+    String path = "/group_visits".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
+    headerParams["Idempotency-Key"] = idempotencyKey;
 
     List<String> contentTypes = ["application/json"];
 
@@ -49,24 +50,24 @@ class PackagesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Package') as Package;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'GroupVisit') as GroupVisit;
     } else {
       return null;
     }
   }
-  /// 
+  /// Delete a Group Visit (Appointment)
   ///
-  /// Delete a pacakge
-  Future deletePackage(String packageId, { String idempotencyKey }) async {
+  /// Deletes a single instance of &#x60;GroupVisit&#x60; (Appointment).
+  Future deleteGroupVisit(String groupVisitId, { String idempotencyKey }) async {
     Object postBody;
 
     // verify required params are set
-    if(packageId == null) {
-     throw new ApiException(400, "Missing required param: packageId");
+    if(groupVisitId == null) {
+     throw new ApiException(400, "Missing required param: groupVisitId");
     }
 
     // create path and map variables
-    String path = "/packages/{package_id}".replaceAll("{format}","json").replaceAll("{" + "package_id" + "}", packageId.toString());
+    String path = "/group_visits/{group_visit_id}".replaceAll("{format}","json").replaceAll("{" + "group_visit_id" + "}", groupVisitId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -104,27 +105,24 @@ class PackagesApi {
       return;
     }
   }
-  /// Get Package
+  /// Get a Group Visit (Appointment)
   ///
-  /// Gets the details of a single instance of a Package
-  Future<Package> getPackage(String packageId, { String include }) async {
+  /// Gets the details of a single instance of a &#x60;GroupVisit&#x60;.
+  Future<GroupVisit> getGroupVisit(String groupVisitId) async {
     Object postBody;
 
     // verify required params are set
-    if(packageId == null) {
-     throw new ApiException(400, "Missing required param: packageId");
+    if(groupVisitId == null) {
+     throw new ApiException(400, "Missing required param: groupVisitId");
     }
 
     // create path and map variables
-    String path = "/packages/{package_id}".replaceAll("{format}","json").replaceAll("{" + "package_id" + "}", packageId.toString());
+    String path = "/group_visits/{group_visit_id}".replaceAll("{format}","json").replaceAll("{" + "group_visit_id" + "}", groupVisitId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-    if(include != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "include", include));
-    }
 
     List<String> contentTypes = [];
 
@@ -152,43 +150,37 @@ class PackagesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Package') as Package;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'GroupVisit') as GroupVisit;
     } else {
       return null;
     }
   }
-  /// Get packages
+  /// List all Group Visits (Appointments)
   ///
-  /// Gets a list of [Package] entities.
-  Future<PaginatedPackagesList> getPackages({ String locationIds, int limit, int offset, String include, bool pickedUp, String query }) async {
+  /// Gets a list of all &#x60;GroupVisit&#x60; entities (Appointments).
+  Future<ErrorsList> getGroupVisits({ String limit, String offset, String locationIds, String sortWith }) async {
     Object postBody;
 
     // verify required params are set
 
     // create path and map variables
-    String path = "/packages".replaceAll("{format}","json");
+    String path = "/group_visits".replaceAll("{format}","json");
 
     // query params
     List<QueryParam> queryParams = [];
     Map<String, String> headerParams = {};
     Map<String, String> formParams = {};
-    if(locationIds != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "location_ids", locationIds));
-    }
     if(limit != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "limit", limit));
     }
     if(offset != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
     }
-    if(include != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "include", include));
+    if(locationIds != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "location_ids", locationIds));
     }
-    if(pickedUp != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "picked_up", pickedUp));
-    }
-    if(query != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
+    if(sortWith != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat("", "sort_with", sortWith));
     }
 
     List<String> contentTypes = [];
@@ -217,24 +209,24 @@ class PackagesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'PaginatedPackagesList') as PaginatedPackagesList;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'ErrorsList') as ErrorsList;
     } else {
       return null;
     }
   }
-  /// Update Package
+  /// Update a Group Visit (Appointment)
   ///
-  /// Update/Edit information about a Package.  picked_up - changes the package_state to picked up and assigns non null value to picked_up_at  recipient_id - update the package&#39;s intended recipient. Changes package_state to &#39;recipient_matched&#39; if a match hasn&#39;t been found and notifies host about their package via email. A previous recipient will stop getting notifications  carrier_name - change/update the package&#39;s carrier/courier information 
-  Future<Package> updatePackage(String packageId, { String idempotencyKey, PackageUpdateParams packageUpdateParams }) async {
-    Object postBody = packageUpdateParams;
+  /// Updates an existing &#x60;GroupVisit&#x60; (Appointment).
+  Future<GroupVisit> updateGroupVisit(String groupVisitId, { String idempotencyKey, GroupVisitUpdateParams groupVisitUpdateParams }) async {
+    Object postBody = groupVisitUpdateParams;
 
     // verify required params are set
-    if(packageId == null) {
-     throw new ApiException(400, "Missing required param: packageId");
+    if(groupVisitId == null) {
+     throw new ApiException(400, "Missing required param: groupVisitId");
     }
 
     // create path and map variables
-    String path = "/packages/{package_id}".replaceAll("{format}","json").replaceAll("{" + "package_id" + "}", packageId.toString());
+    String path = "/group_visits/{group_visit_id}".replaceAll("{format}","json").replaceAll("{" + "group_visit_id" + "}", groupVisitId.toString());
 
     // query params
     List<QueryParam> queryParams = [];
@@ -268,7 +260,7 @@ class PackagesApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Package') as Package;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'GroupVisit') as GroupVisit;
     } else {
       return null;
     }

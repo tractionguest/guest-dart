@@ -17,11 +17,23 @@ class GroupVisit {
   String createdAt = null;
   
   String updatedAt = null;
+  
+  int registrationLimit = null;
+  
+  String registrationUrl = null;
+  
+  int invitesCount = null;
+  
+  int unconfirmedRegistrationsCount = null;
+  
+  bool manualRegistrationApproval = null;
+  
+  bool publicRegistrationEnabled = null;
   GroupVisit();
 
   @override
   String toString() {
-    return 'GroupVisit[id=$id, location=$location, hosts=$hosts, name=$name, startTime=$startTime, endTime=$endTime, createdAt=$createdAt, updatedAt=$updatedAt, ]';
+    return 'GroupVisit[id=$id, location=$location, hosts=$hosts, name=$name, startTime=$startTime, endTime=$endTime, createdAt=$createdAt, updatedAt=$updatedAt, registrationLimit=$registrationLimit, registrationUrl=$registrationUrl, invitesCount=$invitesCount, unconfirmedRegistrationsCount=$unconfirmedRegistrationsCount, manualRegistrationApproval=$manualRegistrationApproval, publicRegistrationEnabled=$publicRegistrationEnabled, ]';
   }
 
   GroupVisit.fromJson(Map<String, dynamic> json) {
@@ -66,6 +78,36 @@ class GroupVisit {
     } else {
           updatedAt = json['updated_at'];
     }
+    if (json['registration_limit'] == null) {
+      registrationLimit = null;
+    } else {
+          registrationLimit = json['registration_limit'];
+    }
+    if (json['registration_url'] == null) {
+      registrationUrl = null;
+    } else {
+          registrationUrl = json['registration_url'];
+    }
+    if (json['invites_count'] == null) {
+      invitesCount = null;
+    } else {
+          invitesCount = json['invites_count'];
+    }
+    if (json['unconfirmed_registrations_count'] == null) {
+      unconfirmedRegistrationsCount = null;
+    } else {
+          unconfirmedRegistrationsCount = json['unconfirmed_registrations_count'];
+    }
+    if (json['manual_registration_approval'] == null) {
+      manualRegistrationApproval = null;
+    } else {
+          manualRegistrationApproval = json['manual_registration_approval'];
+    }
+    if (json['public_registration_enabled'] == null) {
+      publicRegistrationEnabled = null;
+    } else {
+          publicRegistrationEnabled = json['public_registration_enabled'];
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -86,6 +128,16 @@ class GroupVisit {
       json['created_at'] = createdAt;
     if (updatedAt != null)
       json['updated_at'] = updatedAt;
+      json['registration_limit'] = registrationLimit;
+      json['registration_url'] = registrationUrl;
+    if (invitesCount != null)
+      json['invites_count'] = invitesCount;
+    if (unconfirmedRegistrationsCount != null)
+      json['unconfirmed_registrations_count'] = unconfirmedRegistrationsCount;
+    if (manualRegistrationApproval != null)
+      json['manual_registration_approval'] = manualRegistrationApproval;
+    if (publicRegistrationEnabled != null)
+      json['public_registration_enabled'] = publicRegistrationEnabled;
     return json;
   }
 

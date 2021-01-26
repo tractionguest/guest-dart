@@ -29,7 +29,7 @@ class InviteCreateParams {
   
   String company = null;
   
-  String groupVisitId = null;
+  int groupVisitId = null;
   InviteCreateParams();
 
   @override

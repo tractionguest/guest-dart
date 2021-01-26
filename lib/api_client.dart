@@ -63,6 +63,10 @@ class ApiClient {
           return ExternalWatchlistResult.fromJson(value);
         case 'GroupVisit':
           return GroupVisit.fromJson(value);
+        case 'GroupVisitCreateParams':
+          return GroupVisitCreateParams.fromJson(value);
+        case 'GroupVisitUpdateParams':
+          return GroupVisitUpdateParams.fromJson(value);
         case 'GuestResponse':
           return GuestResponse.fromJson(value);
         case 'Host':
