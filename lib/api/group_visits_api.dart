@@ -158,7 +158,7 @@ class GroupVisitsApi {
   /// List all Group Visits (Appointments)
   ///
   /// Gets a list of all &#x60;GroupVisit&#x60; entities (Appointments).
-  Future<ErrorsList> getGroupVisits({ String limit, String offset, String locationIds, String sortWith }) async {
+  Future<PaginatedGroupVisitsList> getGroupVisits({ String limit, String offset, String locationIds, String sortWith }) async {
     Object postBody;
 
     // verify required params are set
@@ -209,7 +209,7 @@ class GroupVisitsApi {
     if(response.statusCode >= 400) {
       throw new ApiException(response.statusCode, _decodeBodyBytes(response));
     } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'ErrorsList') as ErrorsList;
+      return apiClient.deserialize(_decodeBodyBytes(response), 'PaginatedGroupVisitsList') as PaginatedGroupVisitsList;
     } else {
       return null;
     }

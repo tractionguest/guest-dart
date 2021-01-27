@@ -107,6 +107,8 @@ class ApiClient {
           return PaginatedAuditLogsList.fromJson(value);
         case 'PaginatedEmailTemplatesList':
           return PaginatedEmailTemplatesList.fromJson(value);
+        case 'PaginatedGroupVisitsList':
+          return PaginatedGroupVisitsList.fromJson(value);
         case 'PaginatedHostsList':
           return PaginatedHostsList.fromJson(value);
         case 'PaginatedInvitesList':

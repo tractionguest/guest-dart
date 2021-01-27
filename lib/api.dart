@@ -61,6 +61,7 @@ part 'model/package_create_params.dart';
 part 'model/package_update_params.dart';
 part 'model/paginated_audit_logs_list.dart';
 part 'model/paginated_email_templates_list.dart';
+part 'model/paginated_group_visits_list.dart';
 part 'model/paginated_hosts_list.dart';
 part 'model/paginated_invites_list.dart';
 part 'model/paginated_locations_list.dart';

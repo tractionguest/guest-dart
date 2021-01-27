@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getGroupVisits**
-> ErrorsList getGroupVisits(limit, offset, locationIds, sortWith)
+> PaginatedGroupVisitsList getGroupVisits(limit, offset, locationIds, sortWith)
 
 List all Group Visits (Appointments)
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ErrorsList**](ErrorsList.md)
+[**PaginatedGroupVisitsList**](PaginatedGroupVisitsList.md)
 
 ### Authorization
 
