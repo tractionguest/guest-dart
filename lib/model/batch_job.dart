@@ -13,17 +13,11 @@ class BatchJob {
   String workerName = null;
   
   User user = null;
-  
-  int pending = null;
-  
-  int completed = null;
-  
-  int failed = null;
   BatchJob();
 
   @override
   String toString() {
-    return 'BatchJob[bid=$bid, createdAt=$createdAt, status=$status, totalRecords=$totalRecords, workerName=$workerName, user=$user, pending=$pending, completed=$completed, failed=$failed, ]';
+    return 'BatchJob[bid=$bid, createdAt=$createdAt, status=$status, totalRecords=$totalRecords, workerName=$workerName, user=$user, ]';
   }
 
   BatchJob.fromJson(Map<String, dynamic> json) {
@@ -58,21 +52,6 @@ class BatchJob {
     } else {
       user = new User.fromJson(json['user']);
     }
-    if (json['pending'] == null) {
-      pending = null;
-    } else {
-          pending = json['pending'];
-    }
-    if (json['completed'] == null) {
-      completed = null;
-    } else {
-          completed = json['completed'];
-    }
-    if (json['failed'] == null) {
-      failed = null;
-    } else {
-          failed = json['failed'];
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -89,12 +68,6 @@ class BatchJob {
       json['worker_name'] = workerName;
     if (user != null)
       json['user'] = user;
-    if (pending != null)
-      json['pending'] = pending;
-    if (completed != null)
-      json['completed'] = completed;
-    if (failed != null)
-      json['failed'] = failed;
     return json;
   }
 

@@ -16,12 +16,6 @@ Name | Type | Description | Notes
 **endTime** | **String** |  | [optional] [default to null]
 **createdAt** | **String** |  | [optional] [default to null]
 **updatedAt** | **String** |  | [optional] [default to null]
-**registrationLimit** | **int** |  | [optional] [default to null]
-**registrationUrl** | **String** |  | [optional] [default to null]
-**invitesCount** | **int** |  | [optional] [default to null]
-**unconfirmedRegistrationsCount** | **int** |  | [optional] [default to null]
-**manualRegistrationApproval** | **bool** |  | [optional] [default to null]
-**publicRegistrationEnabled** | **bool** |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -5,13 +5,59 @@
 import 'package:guest_sdk/api.dart';
 ```
 
-All URIs are relative to *https://us.tractionguest.com/api/v3*
+All URIs are relative to *https://tractionguest.ca/api/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**createRegistrationSignout**](RegistrationsApi.md#createRegistrationSignout) | **POST** /registrations/{registration_id}/signouts | 
 [**getRegistration**](RegistrationsApi.md#getRegistration) | **GET** /registrations/{registration_id} | Get a Registration
 [**getRegistrations**](RegistrationsApi.md#getRegistrations) | **GET** /registrations | List all Registrations
 
+
+# **createRegistrationSignout**
+> SigninDetail createRegistrationSignout(registrationId, idempotencyKey)
+
+
+
+Signs out the last `Signin` on a `Registration`. Returns the `SigninDetail` that was signed out, if the sign out is successful.
+
+### Example 
+```dart
+import 'package:guest_sdk/api.dart';
+
+var api_instance = new RegistrationsApi();
+var registrationId = registrationId_example; // String | 
+var idempotencyKey = idempotencyKey_example; // String | An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+
+try { 
+    var result = api_instance.createRegistrationSignout(registrationId, idempotencyKey);
+    print(result);
+} catch (e) {
+    print("Exception when calling RegistrationsApi->createRegistrationSignout: $e\n");
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registrationId** | **String**|  | [default to null]
+ **idempotencyKey** | **String**| An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it&#39;s submitted. We store idempotency keys for only 24 hours. Any &#x60;Idempotency-Key&#x60; shorter than 10 characters will be ignored | [optional] [default to null]
+
+### Return type
+
+[**SigninDetail**](SigninDetail.md)
+
+### Authorization
+
+[TractionGuestAuth](../README.md#TractionGuestAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRegistration**
 > RegistrationDetail getRegistration(registrationId, include)
@@ -59,7 +105,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **getRegistrations**
-> PaginatedRegistrationsList getRegistrations(limit, offset, locationIds, createdBefore, createdAfter, needsConfirmation)
+> PaginatedRegistrationsList getRegistrations(limit, offset, locationIds, createdBefore, createdAfter)
 
 List all Registrations
 
@@ -75,10 +121,9 @@ var offset = 56; // int | Offsets the results to a specified number, defaults to
 var locationIds = locationIds_example; // String | A comma separated list of Location IDs
 var createdBefore = createdBefore_example; // String | Restricts results to only those that were created before the provided date
 var createdAfter = createdAfter_example; // String | Restricts results to only those that were created after the provided date
-var needsConfirmation = true; // bool | A confirmed `Registration` is one with an associated `Invite`. This filter returns those without an `Invite` when true, and those with an `Invite` when false.
 
 try { 
-    var result = api_instance.getRegistrations(limit, offset, locationIds, createdBefore, createdAfter, needsConfirmation);
+    var result = api_instance.getRegistrations(limit, offset, locationIds, createdBefore, createdAfter);
     print(result);
 } catch (e) {
     print("Exception when calling RegistrationsApi->getRegistrations: $e\n");
@@ -94,7 +139,6 @@ Name | Type | Description  | Notes
  **locationIds** | **String**| A comma separated list of Location IDs | [optional] [default to null]
  **createdBefore** | **String**| Restricts results to only those that were created before the provided date | [optional] [default to null]
  **createdAfter** | **String**| Restricts results to only those that were created after the provided date | [optional] [default to null]
- **needsConfirmation** | **bool**| A confirmed &#x60;Registration&#x60; is one with an associated &#x60;Invite&#x60;. This filter returns those without an &#x60;Invite&#x60; when true, and those with an &#x60;Invite&#x60; when false. | [optional] [default to null]
 
 ### Return type
 

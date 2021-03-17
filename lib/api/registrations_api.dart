@@ -7,6 +7,57 @@ class RegistrationsApi {
 
   RegistrationsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
+  /// 
+  ///
+  /// Signs out the last &#x60;Signin&#x60; on a &#x60;Registration&#x60;. Returns the &#x60;SigninDetail&#x60; that was signed out, if the sign out is successful.
+  Future<SigninDetail> createRegistrationSignout(String registrationId, { String idempotencyKey }) async {
+    Object postBody;
+
+    // verify required params are set
+    if(registrationId == null) {
+     throw new ApiException(400, "Missing required param: registrationId");
+    }
+
+    // create path and map variables
+    String path = "/registrations/{registration_id}/signouts".replaceAll("{format}","json").replaceAll("{" + "registration_id" + "}", registrationId.toString());
+
+    // query params
+    List<QueryParam> queryParams = [];
+    Map<String, String> headerParams = {};
+    Map<String, String> formParams = {};
+    headerParams["Idempotency-Key"] = idempotencyKey;
+
+    List<String> contentTypes = [];
+
+    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
+    List<String> authNames = ["TractionGuestAuth"];
+
+    if(contentType.startsWith("multipart/form-data")) {
+      bool hasFields = false;
+      MultipartRequest mp = new MultipartRequest(null, null);
+      if(hasFields)
+        postBody = mp;
+    }
+    else {
+    }
+
+    var response = await apiClient.invokeAPI(path,
+                                             'POST',
+                                             queryParams,
+                                             postBody,
+                                             headerParams,
+                                             formParams,
+                                             contentType,
+                                             authNames);
+
+    if(response.statusCode >= 400) {
+      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
+    } else if(response.body != null) {
+      return apiClient.deserialize(_decodeBodyBytes(response), 'SigninDetail') as SigninDetail;
+    } else {
+      return null;
+    }
+  }
   /// Get a Registration
   ///
   /// Gets the details of a single instance of a &#x60;Registration&#x60;
@@ -63,7 +114,7 @@ class RegistrationsApi {
   /// List all Registrations
   ///
   /// Gets a list of all &#x60;Registration&#x60; entities.
-  Future<PaginatedRegistrationsList> getRegistrations({ int limit, int offset, String locationIds, String createdBefore, String createdAfter, bool needsConfirmation }) async {
+  Future<PaginatedRegistrationsList> getRegistrations({ int limit, int offset, String locationIds, String createdBefore, String createdAfter }) async {
     Object postBody;
 
     // verify required params are set
@@ -89,9 +140,6 @@ class RegistrationsApi {
     }
     if(createdAfter != null) {
       queryParams.addAll(_convertParametersForCollectionFormat("", "created_after", createdAfter));
-    }
-    if(needsConfirmation != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "needs_confirmation", needsConfirmation));
     }
 
     List<String> contentTypes = [];

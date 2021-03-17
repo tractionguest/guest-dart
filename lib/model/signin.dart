@@ -29,13 +29,11 @@ class Signin {
   String email = null;
   
   String company = null;
-  
-  Registration registration = null;
   Signin();
 
   @override
   String toString() {
-    return 'Signin[id=$id, mobileNumber=$mobileNumber, signinWatchlist=$signinWatchlist, hosts=$hosts, signinTimestamp=$signinTimestamp, signinPhotoUrl=$signinPhotoUrl, signedOutTimestamp=$signedOutTimestamp, locationName=$locationName, lastName=$lastName, isAcknowledged=$isAcknowledged, isAccountedFor=$isAccountedFor, firstName=$firstName, email=$email, company=$company, registration=$registration, ]';
+    return 'Signin[id=$id, mobileNumber=$mobileNumber, signinWatchlist=$signinWatchlist, hosts=$hosts, signinTimestamp=$signinTimestamp, signinPhotoUrl=$signinPhotoUrl, signedOutTimestamp=$signedOutTimestamp, locationName=$locationName, lastName=$lastName, isAcknowledged=$isAcknowledged, isAccountedFor=$isAccountedFor, firstName=$firstName, email=$email, company=$company, ]';
   }
 
   Signin.fromJson(Map<String, dynamic> json) {
@@ -110,11 +108,6 @@ class Signin {
     } else {
           company = json['company'];
     }
-    if (json['registration'] == null) {
-      registration = null;
-    } else {
-      registration = new Registration.fromJson(json['registration']);
-    }
   }
 
   Map<String, dynamic> toJson() {
@@ -147,8 +140,6 @@ class Signin {
       json['email'] = email;
     if (company != null)
       json['company'] = company;
-    if (registration != null)
-      json['registration'] = registration;
     return json;
   }
 

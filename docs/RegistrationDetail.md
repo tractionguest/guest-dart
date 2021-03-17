@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **name** | **String** | Guest&#39;s name | [optional] [default to null]
 **createdAt** | [**DateTime**](DateTime.md) | Datetime when registration was created | [default to null]
 **signin** | [**Signin**](Signin.md) |  | [optional] [default to null]
+**status** | **String** | An enum describing the state of the &#x60;Registration&#x60; which can have one of the following: not_started, started, completed, rejected, signed_in signed_out | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

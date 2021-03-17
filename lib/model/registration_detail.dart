@@ -21,11 +21,14 @@ class RegistrationDetail {
   DateTime createdAt = null;
   
   Signin signin = null;
+  /* An enum describing the state of the `Registration` which can have one of the following: not_started, started, completed, rejected, signed_in signed_out */
+  String status = null;
+  //enum statusEnum {  not_started,  started,  completed,  rejected,  signed_in,  signed_out,  };{
   RegistrationDetail();
 
   @override
   String toString() {
-    return 'RegistrationDetail[id=$id, visitor=$visitor, invite=$invite, guestResponses=$guestResponses, photoUrl=$photoUrl, company=$company, email=$email, name=$name, createdAt=$createdAt, signin=$signin, ]';
+    return 'RegistrationDetail[id=$id, visitor=$visitor, invite=$invite, guestResponses=$guestResponses, photoUrl=$photoUrl, company=$company, email=$email, name=$name, createdAt=$createdAt, signin=$signin, status=$status, ]';
   }
 
   RegistrationDetail.fromJson(Map<String, dynamic> json) {
@@ -80,6 +83,11 @@ class RegistrationDetail {
     } else {
       signin = new Signin.fromJson(json['signin']);
     }
+    if (json['status'] == null) {
+      status = null;
+    } else {
+          status = json['status'];
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -100,6 +108,8 @@ class RegistrationDetail {
       json['created_at'] = createdAt == null ? null : createdAt.toUtc().toIso8601String();
     if (signin != null)
       json['signin'] = signin;
+    if (status != null)
+      json['status'] = status;
     return json;
   }
 

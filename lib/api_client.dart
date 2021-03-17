@@ -18,7 +18,7 @@ class ApiClient {
   final _regList = RegExp(r'^List<(.*)>$');
   final _regMap = RegExp(r'^Map<String,(.*)>$');
 
-  ApiClient({this.basePath = "https://us.tractionguest.com/api/v3"}) {
+  ApiClient({this.basePath = "https://tractionguest.ca/api/v3"}) {
     // Setup authentications (key: authentication name, value: authentication).
   }
 
@@ -63,10 +63,6 @@ class ApiClient {
           return ExternalWatchlistResult.fromJson(value);
         case 'GroupVisit':
           return GroupVisit.fromJson(value);
-        case 'GroupVisitCreateParams':
-          return GroupVisitCreateParams.fromJson(value);
-        case 'GroupVisitUpdateParams':
-          return GroupVisitUpdateParams.fromJson(value);
         case 'GuestResponse':
           return GuestResponse.fromJson(value);
         case 'Host':
@@ -75,8 +71,6 @@ class ApiClient {
           return HostBatchCreateParams.fromJson(value);
         case 'HostCreateParams':
           return HostCreateParams.fromJson(value);
-        case 'IdentifierList':
-          return IdentifierList.fromJson(value);
         case 'Image':
           return Image.fromJson(value);
         case 'InternalWatchlistResult':
@@ -107,8 +101,6 @@ class ApiClient {
           return PaginatedAuditLogsList.fromJson(value);
         case 'PaginatedEmailTemplatesList':
           return PaginatedEmailTemplatesList.fromJson(value);
-        case 'PaginatedGroupVisitsList':
-          return PaginatedGroupVisitsList.fromJson(value);
         case 'PaginatedHostsList':
           return PaginatedHostsList.fromJson(value);
         case 'PaginatedInvitesList':
