@@ -1,129 +1,168 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class SigninCreateParams {
-  /* UUID of a Registration */
-  String registrationId = null;
-  /* E-mail, ignored if `registration_id` is included */
-  String email = null;
-  /* Company name, ignored if `registration_id` is included */
-  String company = null;
-  /* Last name, ignored if `registration_id` is included */
-  String lastName = null;
-  /* First name, ignored if `registration_id` is included */
-  String firstName = null;
-  
-  String smsMessage = null;
-  
-  bool sendNotifications = null;
-  /* ID of the Location where the Signin happened, ignored if `registration_id` is included */
-  int locationId = null;
-  /* Array of Host ids, ignored if `registration_id` is included */
-  List<int> hostIds = [];
-  
-  int hostEmailTemplateId = null;
-  
-  int guestEmailTemplateId = null;
-  SigninCreateParams();
+  /// Returns a new [SigninCreateParams] instance.
+  SigninCreateParams({
+    this.registrationId,
+    this.email,
+    this.company,
+    this.lastName,
+    this.firstName,
+    this.smsMessage,
+    this.sendNotifications,
+    this.locationId,
+    this.hostIds = const [],
+    this.hostEmailTemplateId,
+    this.guestEmailTemplateId,
+  });
+
+  /// UUID of a Registration
+  String registrationId;
+
+  /// E-mail, ignored if `registration_id` is included
+  String email;
+
+  /// Company name, ignored if `registration_id` is included
+  String company;
+
+  /// Last name, ignored if `registration_id` is included
+  String lastName;
+
+  /// First name, ignored if `registration_id` is included
+  String firstName;
+
+  String smsMessage;
+
+  bool sendNotifications;
+
+  /// ID of the Location where the Signin happened, ignored if `registration_id` is included
+  int locationId;
+
+  /// Array of Host ids, ignored if `registration_id` is included
+  List<int> hostIds;
+
+  int hostEmailTemplateId;
+
+  int guestEmailTemplateId;
 
   @override
-  String toString() {
-    return 'SigninCreateParams[registrationId=$registrationId, email=$email, company=$company, lastName=$lastName, firstName=$firstName, smsMessage=$smsMessage, sendNotifications=$sendNotifications, locationId=$locationId, hostIds=$hostIds, hostEmailTemplateId=$hostEmailTemplateId, guestEmailTemplateId=$guestEmailTemplateId, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is SigninCreateParams &&
+     other.registrationId == registrationId &&
+     other.email == email &&
+     other.company == company &&
+     other.lastName == lastName &&
+     other.firstName == firstName &&
+     other.smsMessage == smsMessage &&
+     other.sendNotifications == sendNotifications &&
+     other.locationId == locationId &&
+     other.hostIds == hostIds &&
+     other.hostEmailTemplateId == hostEmailTemplateId &&
+     other.guestEmailTemplateId == guestEmailTemplateId;
 
-  SigninCreateParams.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['registration_id'] == null) {
-      registrationId = null;
-    } else {
-          registrationId = json['registration_id'];
-    }
-    if (json['email'] == null) {
-      email = null;
-    } else {
-          email = json['email'];
-    }
-    if (json['company'] == null) {
-      company = null;
-    } else {
-          company = json['company'];
-    }
-    if (json['last_name'] == null) {
-      lastName = null;
-    } else {
-          lastName = json['last_name'];
-    }
-    if (json['first_name'] == null) {
-      firstName = null;
-    } else {
-          firstName = json['first_name'];
-    }
-    if (json['sms_message'] == null) {
-      smsMessage = null;
-    } else {
-          smsMessage = json['sms_message'];
-    }
-    if (json['send_notifications'] == null) {
-      sendNotifications = null;
-    } else {
-          sendNotifications = json['send_notifications'];
-    }
-    if (json['location_id'] == null) {
-      locationId = null;
-    } else {
-          locationId = json['location_id'];
-    }
-    if (json['host_ids'] == null) {
-      hostIds = null;
-    } else {
-      hostIds = (json['host_ids'] as List).cast<int>();
-    }
-    if (json['host_email_template_id'] == null) {
-      hostEmailTemplateId = null;
-    } else {
-          hostEmailTemplateId = json['host_email_template_id'];
-    }
-    if (json['guest_email_template_id'] == null) {
-      guestEmailTemplateId = null;
-    } else {
-          guestEmailTemplateId = json['guest_email_template_id'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (registrationId == null ? 0 : registrationId.hashCode) +
+    (email == null ? 0 : email.hashCode) +
+    (company == null ? 0 : company.hashCode) +
+    (lastName == null ? 0 : lastName.hashCode) +
+    (firstName == null ? 0 : firstName.hashCode) +
+    (smsMessage == null ? 0 : smsMessage.hashCode) +
+    (sendNotifications == null ? 0 : sendNotifications.hashCode) +
+    (locationId == null ? 0 : locationId.hashCode) +
+    (hostIds == null ? 0 : hostIds.hashCode) +
+    (hostEmailTemplateId == null ? 0 : hostEmailTemplateId.hashCode) +
+    (guestEmailTemplateId == null ? 0 : guestEmailTemplateId.hashCode);
+
+  @override
+  String toString() => 'SigninCreateParams[registrationId=$registrationId, email=$email, company=$company, lastName=$lastName, firstName=$firstName, smsMessage=$smsMessage, sendNotifications=$sendNotifications, locationId=$locationId, hostIds=$hostIds, hostEmailTemplateId=$hostEmailTemplateId, guestEmailTemplateId=$guestEmailTemplateId]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (registrationId != null)
-      json['registration_id'] = registrationId;
-    if (email != null)
-      json['email'] = email;
-    if (company != null)
-      json['company'] = company;
-    if (lastName != null)
-      json['last_name'] = lastName;
-    if (firstName != null)
-      json['first_name'] = firstName;
-    if (smsMessage != null)
-      json['sms_message'] = smsMessage;
-    if (sendNotifications != null)
-      json['send_notifications'] = sendNotifications;
-    if (locationId != null)
-      json['location_id'] = locationId;
-    if (hostIds != null)
-      json['host_ids'] = hostIds;
-    if (hostEmailTemplateId != null)
-      json['host_email_template_id'] = hostEmailTemplateId;
-    if (guestEmailTemplateId != null)
-      json['guest_email_template_id'] = guestEmailTemplateId;
+    final json = <String, dynamic>{};
+    if (registrationId != null) {
+      json[r'registration_id'] = registrationId;
+    }
+    if (email != null) {
+      json[r'email'] = email;
+    }
+    if (company != null) {
+      json[r'company'] = company;
+    }
+    if (lastName != null) {
+      json[r'last_name'] = lastName;
+    }
+    if (firstName != null) {
+      json[r'first_name'] = firstName;
+    }
+    if (smsMessage != null) {
+      json[r'sms_message'] = smsMessage;
+    }
+    if (sendNotifications != null) {
+      json[r'send_notifications'] = sendNotifications;
+    }
+    if (locationId != null) {
+      json[r'location_id'] = locationId;
+    }
+    if (hostIds != null) {
+      json[r'host_ids'] = hostIds;
+    }
+    if (hostEmailTemplateId != null) {
+      json[r'host_email_template_id'] = hostEmailTemplateId;
+    }
+    if (guestEmailTemplateId != null) {
+      json[r'guest_email_template_id'] = guestEmailTemplateId;
+    }
     return json;
   }
 
-  static List<SigninCreateParams> listFromJson(List<dynamic> json) {
-    return json == null ? new List<SigninCreateParams>() : json.map((value) => new SigninCreateParams.fromJson(value)).toList();
-  }
+  /// Returns a new [SigninCreateParams] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SigninCreateParams fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : SigninCreateParams(
+        registrationId: json[r'registration_id'],
+        email: json[r'email'],
+        company: json[r'company'],
+        lastName: json[r'last_name'],
+        firstName: json[r'first_name'],
+        smsMessage: json[r'sms_message'],
+        sendNotifications: json[r'send_notifications'],
+        locationId: json[r'location_id'],
+        hostIds: json[r'host_ids'] == null
+          ? null
+          : (json[r'host_ids'] as List).cast<int>(),
+        hostEmailTemplateId: json[r'host_email_template_id'],
+        guestEmailTemplateId: json[r'guest_email_template_id'],
+    );
+
+  static List<SigninCreateParams> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <SigninCreateParams>[]
+      : json.map((v) => SigninCreateParams.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, SigninCreateParams> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, SigninCreateParams>();
+    final map = <String, SigninCreateParams>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new SigninCreateParams.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = SigninCreateParams.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of SigninCreateParams-objects as value to a dart map
+  static Map<String, List<SigninCreateParams>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<SigninCreateParams>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = SigninCreateParams.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }

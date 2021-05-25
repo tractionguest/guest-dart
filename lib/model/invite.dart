@@ -1,144 +1,250 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class Invite {
-  
-  int id = null;
-  
-  Registration registration = null;
-  /*  */
-  String mobileNumber = null;
-  /*  */
-  String email = null;
-  /*  */
-  DateTime endDate = null;
-  
-  InviteWatchlist inviteWatchlist = null;
-  
-  List<Host> hosts = [];
-  
-  String watchlistColour = null;
-  //enum watchlistColourEnum {  RED,  GREEN,  YELLOW,  ORANGE,  };{
-  
-  Location location = null;
-  
-  DateTime startDate = null;
-  
-  String lastName = null;
-  
-  String firstName = null;
-  
-  GroupVisit groupVisit = null;
-  Invite();
+  /// Returns a new [Invite] instance.
+  Invite({
+    @required this.id,
+    this.registration,
+    this.mobileNumber,
+    this.email,
+    this.endDate,
+    this.inviteWatchlist,
+    this.hosts = const [],
+    this.watchlistColour,
+    this.location,
+    this.startDate,
+    this.lastName,
+    this.firstName,
+    this.groupVisit,
+  });
+
+  int id;
+
+  Registration registration;
+
+  /// 
+  String mobileNumber;
+
+  /// 
+  String email;
+
+  /// 
+  DateTime endDate;
+
+  InviteWatchlist inviteWatchlist;
+
+  List<Host> hosts;
+
+  InviteWatchlistColourEnum watchlistColour;
+
+  Location location;
+
+  DateTime startDate;
+
+  String lastName;
+
+  String firstName;
+
+  GroupVisit groupVisit;
 
   @override
-  String toString() {
-    return 'Invite[id=$id, registration=$registration, mobileNumber=$mobileNumber, email=$email, endDate=$endDate, inviteWatchlist=$inviteWatchlist, hosts=$hosts, watchlistColour=$watchlistColour, location=$location, startDate=$startDate, lastName=$lastName, firstName=$firstName, groupVisit=$groupVisit, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is Invite &&
+     other.id == id &&
+     other.registration == registration &&
+     other.mobileNumber == mobileNumber &&
+     other.email == email &&
+     other.endDate == endDate &&
+     other.inviteWatchlist == inviteWatchlist &&
+     other.hosts == hosts &&
+     other.watchlistColour == watchlistColour &&
+     other.location == location &&
+     other.startDate == startDate &&
+     other.lastName == lastName &&
+     other.firstName == firstName &&
+     other.groupVisit == groupVisit;
 
-  Invite.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['registration'] == null) {
-      registration = null;
-    } else {
-      registration = new Registration.fromJson(json['registration']);
-    }
-    if (json['mobile_number'] == null) {
-      mobileNumber = null;
-    } else {
-          mobileNumber = json['mobile_number'];
-    }
-    if (json['email'] == null) {
-      email = null;
-    } else {
-          email = json['email'];
-    }
-    if (json['end_date'] == null) {
-      endDate = null;
-    } else {
-      endDate = DateTime.parse(json['end_date']);
-    }
-    if (json['invite_watchlist'] == null) {
-      inviteWatchlist = null;
-    } else {
-      inviteWatchlist = new InviteWatchlist.fromJson(json['invite_watchlist']);
-    }
-    if (json['hosts'] == null) {
-      hosts = null;
-    } else {
-      hosts = Host.listFromJson(json['hosts']);
-    }
-    if (json['watchlist_colour'] == null) {
-      watchlistColour = null;
-    } else {
-          watchlistColour = json['watchlist_colour'];
-    }
-    if (json['location'] == null) {
-      location = null;
-    } else {
-      location = new Location.fromJson(json['location']);
-    }
-    if (json['start_date'] == null) {
-      startDate = null;
-    } else {
-      startDate = DateTime.parse(json['start_date']);
-    }
-    if (json['last_name'] == null) {
-      lastName = null;
-    } else {
-          lastName = json['last_name'];
-    }
-    if (json['first_name'] == null) {
-      firstName = null;
-    } else {
-          firstName = json['first_name'];
-    }
-    if (json['group_visit'] == null) {
-      groupVisit = null;
-    } else {
-      groupVisit = new GroupVisit.fromJson(json['group_visit']);
-    }
-  }
+  @override
+  int get hashCode =>
+    (id == null ? 0 : id.hashCode) +
+    (registration == null ? 0 : registration.hashCode) +
+    (mobileNumber == null ? 0 : mobileNumber.hashCode) +
+    (email == null ? 0 : email.hashCode) +
+    (endDate == null ? 0 : endDate.hashCode) +
+    (inviteWatchlist == null ? 0 : inviteWatchlist.hashCode) +
+    (hosts == null ? 0 : hosts.hashCode) +
+    (watchlistColour == null ? 0 : watchlistColour.hashCode) +
+    (location == null ? 0 : location.hashCode) +
+    (startDate == null ? 0 : startDate.hashCode) +
+    (lastName == null ? 0 : lastName.hashCode) +
+    (firstName == null ? 0 : firstName.hashCode) +
+    (groupVisit == null ? 0 : groupVisit.hashCode);
+
+  @override
+  String toString() => 'Invite[id=$id, registration=$registration, mobileNumber=$mobileNumber, email=$email, endDate=$endDate, inviteWatchlist=$inviteWatchlist, hosts=$hosts, watchlistColour=$watchlistColour, location=$location, startDate=$startDate, lastName=$lastName, firstName=$firstName, groupVisit=$groupVisit]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
-    if (registration != null)
-      json['registration'] = registration;
-      json['mobile_number'] = mobileNumber;
-      json['email'] = email;
-      json['end_date'] = endDate == null ? null : endDate.toUtc().toIso8601String();
-    if (inviteWatchlist != null)
-      json['invite_watchlist'] = inviteWatchlist;
-    if (hosts != null)
-      json['hosts'] = hosts;
-      json['watchlist_colour'] = watchlistColour;
-    if (location != null)
-      json['location'] = location;
-    if (startDate != null)
-      json['start_date'] = startDate == null ? null : startDate.toUtc().toIso8601String();
-      json['last_name'] = lastName;
-      json['first_name'] = firstName;
-    if (groupVisit != null)
-      json['group_visit'] = groupVisit;
+    final json = <String, dynamic>{};
+      json[r'id'] = id;
+    if (registration != null) {
+      json[r'registration'] = registration;
+    }
+    if (mobileNumber != null) {
+      json[r'mobile_number'] = mobileNumber;
+    }
+      json[r'email'] = email == null ? null : email;
+    if (endDate != null) {
+      json[r'end_date'] = endDate.toUtc().toIso8601String();
+    }
+    if (inviteWatchlist != null) {
+      json[r'invite_watchlist'] = inviteWatchlist;
+    }
+    if (hosts != null) {
+      json[r'hosts'] = hosts;
+    }
+    if (watchlistColour != null) {
+      json[r'watchlist_colour'] = watchlistColour;
+    }
+    if (location != null) {
+      json[r'location'] = location;
+    }
+    if (startDate != null) {
+      json[r'start_date'] = startDate.toUtc().toIso8601String();
+    }
+      json[r'last_name'] = lastName == null ? null : lastName;
+      json[r'first_name'] = firstName == null ? null : firstName;
+    if (groupVisit != null) {
+      json[r'group_visit'] = groupVisit;
+    }
     return json;
   }
 
-  static List<Invite> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Invite>() : json.map((value) => new Invite.fromJson(value)).toList();
-  }
+  /// Returns a new [Invite] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Invite fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : Invite(
+        id: json[r'id'],
+        registration: Registration.fromJson(json[r'registration']),
+        mobileNumber: json[r'mobile_number'],
+        email: json[r'email'],
+        endDate: json[r'end_date'] == null
+          ? null
+          : DateTime.parse(json[r'end_date']),
+        inviteWatchlist: InviteWatchlist.fromJson(json[r'invite_watchlist']),
+        hosts: Host.listFromJson(json[r'hosts']),
+        watchlistColour: InviteWatchlistColourEnum.fromJson(json[r'watchlist_colour']),
+        location: Location.fromJson(json[r'location']),
+        startDate: json[r'start_date'] == null
+          ? null
+          : DateTime.parse(json[r'start_date']),
+        lastName: json[r'last_name'],
+        firstName: json[r'first_name'],
+        groupVisit: GroupVisit.fromJson(json[r'group_visit']),
+    );
+
+  static List<Invite> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <Invite>[]
+      : json.map((v) => Invite.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, Invite> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Invite>();
+    final map = <String, Invite>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Invite.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = Invite.fromJson(v));
     }
     return map;
   }
+
+  // maps a json object with a list of Invite-objects as value to a dart map
+  static Map<String, List<Invite>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<Invite>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = Invite.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
+  }
+}
+
+
+class InviteWatchlistColourEnum {
+  /// Instantiate a new enum with the provided [value].
+  const InviteWatchlistColourEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const RED = InviteWatchlistColourEnum._(r'RED');
+  static const GREEN = InviteWatchlistColourEnum._(r'GREEN');
+  static const YELLOW = InviteWatchlistColourEnum._(r'YELLOW');
+  static const ORANGE = InviteWatchlistColourEnum._(r'ORANGE');
+
+  /// List of all possible values in this [enum][InviteWatchlistColourEnum].
+  static const values = <InviteWatchlistColourEnum>[
+    RED,
+    GREEN,
+    YELLOW,
+    ORANGE,
+  ];
+
+  static InviteWatchlistColourEnum fromJson(dynamic value) =>
+    InviteWatchlistColourEnumTypeTransformer().decode(value);
+
+  static List<InviteWatchlistColourEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <InviteWatchlistColourEnum>[]
+      : json
+          .map((value) => InviteWatchlistColourEnum.fromJson(value))
+          .toList(growable: true == growable);
+}
+
+/// Transformation class that can [encode] an instance of [InviteWatchlistColourEnum] to String,
+/// and [decode] dynamic data back to [InviteWatchlistColourEnum].
+class InviteWatchlistColourEnumTypeTransformer {
+  const InviteWatchlistColourEnumTypeTransformer._();
+
+  factory InviteWatchlistColourEnumTypeTransformer() => _instance ??= InviteWatchlistColourEnumTypeTransformer._();
+
+  String encode(InviteWatchlistColourEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a InviteWatchlistColourEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  InviteWatchlistColourEnum decode(dynamic data, {bool allowNull}) {
+    switch (data) {
+      case r'RED': return InviteWatchlistColourEnum.RED;
+      case r'GREEN': return InviteWatchlistColourEnum.GREEN;
+      case r'YELLOW': return InviteWatchlistColourEnum.YELLOW;
+      case r'ORANGE': return InviteWatchlistColourEnum.ORANGE;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [InviteWatchlistColourEnumTypeTransformer] instance.
+  static InviteWatchlistColourEnumTypeTransformer _instance;
 }
 

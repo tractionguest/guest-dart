@@ -1,102 +1,129 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class User {
-  
-  int id = null;
-  /* Identifies if user has access to mobile app features. */
-  bool mobileAccessEnabled = null;
-  
-  List<PermissionGroup> permissionGroups = [];
-  /*  */
-  String email = null;
-  /*  */
-  String lastName = null;
-  /* Determines if the registration portal has been enabled for this account */
-  String firstName = null;
-  /* Determines if the registration portal has been enabled for this account */
-  bool registrationPortalEnabled = null;
-  
-  String accountUuid = null;
-  User();
+  /// Returns a new [User] instance.
+  User({
+    @required this.id,
+    @required this.mobileAccessEnabled,
+    this.permissionGroups = const [],
+    @required this.email,
+    this.lastName,
+    this.firstName,
+    @required this.registrationPortalEnabled,
+    this.accountUuid,
+  });
+
+  int id;
+
+  /// Identifies if user has access to mobile app features.
+  bool mobileAccessEnabled;
+
+  List<PermissionGroup> permissionGroups;
+
+  /// 
+  String email;
+
+  /// 
+  String lastName;
+
+  /// Determines if the registration portal has been enabled for this account
+  String firstName;
+
+  /// Determines if the registration portal has been enabled for this account
+  bool registrationPortalEnabled;
+
+  String accountUuid;
 
   @override
-  String toString() {
-    return 'User[id=$id, mobileAccessEnabled=$mobileAccessEnabled, permissionGroups=$permissionGroups, email=$email, lastName=$lastName, firstName=$firstName, registrationPortalEnabled=$registrationPortalEnabled, accountUuid=$accountUuid, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is User &&
+     other.id == id &&
+     other.mobileAccessEnabled == mobileAccessEnabled &&
+     other.permissionGroups == permissionGroups &&
+     other.email == email &&
+     other.lastName == lastName &&
+     other.firstName == firstName &&
+     other.registrationPortalEnabled == registrationPortalEnabled &&
+     other.accountUuid == accountUuid;
 
-  User.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['mobile_access_enabled'] == null) {
-      mobileAccessEnabled = null;
-    } else {
-          mobileAccessEnabled = json['mobile_access_enabled'];
-    }
-    if (json['permission_groups'] == null) {
-      permissionGroups = null;
-    } else {
-      permissionGroups = PermissionGroup.listFromJson(json['permission_groups']);
-    }
-    if (json['email'] == null) {
-      email = null;
-    } else {
-          email = json['email'];
-    }
-    if (json['last_name'] == null) {
-      lastName = null;
-    } else {
-          lastName = json['last_name'];
-    }
-    if (json['first_name'] == null) {
-      firstName = null;
-    } else {
-          firstName = json['first_name'];
-    }
-    if (json['registration_portal_enabled'] == null) {
-      registrationPortalEnabled = null;
-    } else {
-          registrationPortalEnabled = json['registration_portal_enabled'];
-    }
-    if (json['account_uuid'] == null) {
-      accountUuid = null;
-    } else {
-          accountUuid = json['account_uuid'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (id == null ? 0 : id.hashCode) +
+    (mobileAccessEnabled == null ? 0 : mobileAccessEnabled.hashCode) +
+    (permissionGroups == null ? 0 : permissionGroups.hashCode) +
+    (email == null ? 0 : email.hashCode) +
+    (lastName == null ? 0 : lastName.hashCode) +
+    (firstName == null ? 0 : firstName.hashCode) +
+    (registrationPortalEnabled == null ? 0 : registrationPortalEnabled.hashCode) +
+    (accountUuid == null ? 0 : accountUuid.hashCode);
+
+  @override
+  String toString() => 'User[id=$id, mobileAccessEnabled=$mobileAccessEnabled, permissionGroups=$permissionGroups, email=$email, lastName=$lastName, firstName=$firstName, registrationPortalEnabled=$registrationPortalEnabled, accountUuid=$accountUuid]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
-    if (mobileAccessEnabled != null)
-      json['mobile_access_enabled'] = mobileAccessEnabled;
-    if (permissionGroups != null)
-      json['permission_groups'] = permissionGroups;
-    if (email != null)
-      json['email'] = email;
-    if (lastName != null)
-      json['last_name'] = lastName;
-    if (firstName != null)
-      json['first_name'] = firstName;
-    if (registrationPortalEnabled != null)
-      json['registration_portal_enabled'] = registrationPortalEnabled;
-    if (accountUuid != null)
-      json['account_uuid'] = accountUuid;
+    final json = <String, dynamic>{};
+      json[r'id'] = id;
+      json[r'mobile_access_enabled'] = mobileAccessEnabled;
+    if (permissionGroups != null) {
+      json[r'permission_groups'] = permissionGroups;
+    }
+      json[r'email'] = email;
+    if (lastName != null) {
+      json[r'last_name'] = lastName;
+    }
+    if (firstName != null) {
+      json[r'first_name'] = firstName;
+    }
+      json[r'registration_portal_enabled'] = registrationPortalEnabled;
+    if (accountUuid != null) {
+      json[r'account_uuid'] = accountUuid;
+    }
     return json;
   }
 
-  static List<User> listFromJson(List<dynamic> json) {
-    return json == null ? new List<User>() : json.map((value) => new User.fromJson(value)).toList();
-  }
+  /// Returns a new [User] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static User fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : User(
+        id: json[r'id'],
+        mobileAccessEnabled: json[r'mobile_access_enabled'],
+        permissionGroups: PermissionGroup.listFromJson(json[r'permission_groups']),
+        email: json[r'email'],
+        lastName: json[r'last_name'],
+        firstName: json[r'first_name'],
+        registrationPortalEnabled: json[r'registration_portal_enabled'],
+        accountUuid: json[r'account_uuid'],
+    );
+
+  static List<User> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <User>[]
+      : json.map((v) => User.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, User> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, User>();
+    final map = <String, User>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new User.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = User.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of User-objects as value to a dart map
+  static Map<String, List<User>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<User>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = User.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }

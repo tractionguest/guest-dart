@@ -1,111 +1,141 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class BatchJob {
-  
-  String bid = null;
-  
-  String createdAt = null;
-  
-  String status = null;
-  
-  int totalRecords = null;
-  
-  String workerName = null;
-  
-  User user = null;
-  
-  int pending = null;
-  
-  int completed = null;
-  
-  int failed = null;
-  BatchJob();
+  /// Returns a new [BatchJob] instance.
+  BatchJob({
+    this.bid,
+    this.createdAt,
+    this.status,
+    this.totalRecords,
+    this.workerName,
+    this.user,
+    this.pending,
+    this.completed,
+    this.failed,
+  });
+
+  String bid;
+
+  String createdAt;
+
+  String status;
+
+  int totalRecords;
+
+  String workerName;
+
+  User user;
+
+  int pending;
+
+  int completed;
+
+  int failed;
 
   @override
-  String toString() {
-    return 'BatchJob[bid=$bid, createdAt=$createdAt, status=$status, totalRecords=$totalRecords, workerName=$workerName, user=$user, pending=$pending, completed=$completed, failed=$failed, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is BatchJob &&
+     other.bid == bid &&
+     other.createdAt == createdAt &&
+     other.status == status &&
+     other.totalRecords == totalRecords &&
+     other.workerName == workerName &&
+     other.user == user &&
+     other.pending == pending &&
+     other.completed == completed &&
+     other.failed == failed;
 
-  BatchJob.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['bid'] == null) {
-      bid = null;
-    } else {
-          bid = json['bid'];
-    }
-    if (json['created_at'] == null) {
-      createdAt = null;
-    } else {
-          createdAt = json['created_at'];
-    }
-    if (json['status'] == null) {
-      status = null;
-    } else {
-          status = json['status'];
-    }
-    if (json['total_records'] == null) {
-      totalRecords = null;
-    } else {
-          totalRecords = json['total_records'];
-    }
-    if (json['worker_name'] == null) {
-      workerName = null;
-    } else {
-          workerName = json['worker_name'];
-    }
-    if (json['user'] == null) {
-      user = null;
-    } else {
-      user = new User.fromJson(json['user']);
-    }
-    if (json['pending'] == null) {
-      pending = null;
-    } else {
-          pending = json['pending'];
-    }
-    if (json['completed'] == null) {
-      completed = null;
-    } else {
-          completed = json['completed'];
-    }
-    if (json['failed'] == null) {
-      failed = null;
-    } else {
-          failed = json['failed'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (bid == null ? 0 : bid.hashCode) +
+    (createdAt == null ? 0 : createdAt.hashCode) +
+    (status == null ? 0 : status.hashCode) +
+    (totalRecords == null ? 0 : totalRecords.hashCode) +
+    (workerName == null ? 0 : workerName.hashCode) +
+    (user == null ? 0 : user.hashCode) +
+    (pending == null ? 0 : pending.hashCode) +
+    (completed == null ? 0 : completed.hashCode) +
+    (failed == null ? 0 : failed.hashCode);
+
+  @override
+  String toString() => 'BatchJob[bid=$bid, createdAt=$createdAt, status=$status, totalRecords=$totalRecords, workerName=$workerName, user=$user, pending=$pending, completed=$completed, failed=$failed]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (bid != null)
-      json['bid'] = bid;
-    if (createdAt != null)
-      json['created_at'] = createdAt;
-    if (status != null)
-      json['status'] = status;
-    if (totalRecords != null)
-      json['total_records'] = totalRecords;
-    if (workerName != null)
-      json['worker_name'] = workerName;
-    if (user != null)
-      json['user'] = user;
-    if (pending != null)
-      json['pending'] = pending;
-    if (completed != null)
-      json['completed'] = completed;
-    if (failed != null)
-      json['failed'] = failed;
+    final json = <String, dynamic>{};
+    if (bid != null) {
+      json[r'bid'] = bid;
+    }
+    if (createdAt != null) {
+      json[r'created_at'] = createdAt;
+    }
+    if (status != null) {
+      json[r'status'] = status;
+    }
+    if (totalRecords != null) {
+      json[r'total_records'] = totalRecords;
+    }
+    if (workerName != null) {
+      json[r'worker_name'] = workerName;
+    }
+    if (user != null) {
+      json[r'user'] = user;
+    }
+    if (pending != null) {
+      json[r'pending'] = pending;
+    }
+    if (completed != null) {
+      json[r'completed'] = completed;
+    }
+    if (failed != null) {
+      json[r'failed'] = failed;
+    }
     return json;
   }
 
-  static List<BatchJob> listFromJson(List<dynamic> json) {
-    return json == null ? new List<BatchJob>() : json.map((value) => new BatchJob.fromJson(value)).toList();
-  }
+  /// Returns a new [BatchJob] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static BatchJob fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : BatchJob(
+        bid: json[r'bid'],
+        createdAt: json[r'created_at'],
+        status: json[r'status'],
+        totalRecords: json[r'total_records'],
+        workerName: json[r'worker_name'],
+        user: User.fromJson(json[r'user']),
+        pending: json[r'pending'],
+        completed: json[r'completed'],
+        failed: json[r'failed'],
+    );
+
+  static List<BatchJob> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <BatchJob>[]
+      : json.map((v) => BatchJob.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, BatchJob> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, BatchJob>();
+    final map = <String, BatchJob>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new BatchJob.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = BatchJob.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of BatchJob-objects as value to a dart map
+  static Map<String, List<BatchJob>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<BatchJob>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = BatchJob.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }

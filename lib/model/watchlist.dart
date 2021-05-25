@@ -1,105 +1,206 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class Watchlist {
-  
-  int id = null;
-  
-  List<String> aliases = [];
-  
-  String photo = null;
-  
-  String notes = null;
-  
-  String lastName = null;
-  
-  String firstName = null;
-  
-  String email = null;
-  
-  String colour = null;
-  //enum colourEnum {  RED,  YELLOW,  GREEN,  ORANGE,  };{
-  Watchlist();
+  /// Returns a new [Watchlist] instance.
+  Watchlist({
+    @required this.id,
+    this.aliases = const [],
+    this.photo,
+    this.notes,
+    this.lastName,
+    this.firstName,
+    this.email,
+    this.colour,
+  });
+
+  int id;
+
+  List<String> aliases;
+
+  String photo;
+
+  String notes;
+
+  String lastName;
+
+  String firstName;
+
+  String email;
+
+  WatchlistColourEnum colour;
 
   @override
-  String toString() {
-    return 'Watchlist[id=$id, aliases=$aliases, photo=$photo, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is Watchlist &&
+     other.id == id &&
+     other.aliases == aliases &&
+     other.photo == photo &&
+     other.notes == notes &&
+     other.lastName == lastName &&
+     other.firstName == firstName &&
+     other.email == email &&
+     other.colour == colour;
 
-  Watchlist.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['aliases'] == null) {
-      aliases = null;
-    } else {
-      aliases = (json['aliases'] as List).cast<String>();
-    }
-    if (json['photo'] == null) {
-      photo = null;
-    } else {
-          photo = json['photo'];
-    }
-    if (json['notes'] == null) {
-      notes = null;
-    } else {
-          notes = json['notes'];
-    }
-    if (json['last_name'] == null) {
-      lastName = null;
-    } else {
-          lastName = json['last_name'];
-    }
-    if (json['first_name'] == null) {
-      firstName = null;
-    } else {
-          firstName = json['first_name'];
-    }
-    if (json['email'] == null) {
-      email = null;
-    } else {
-          email = json['email'];
-    }
-    if (json['colour'] == null) {
-      colour = null;
-    } else {
-          colour = json['colour'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (id == null ? 0 : id.hashCode) +
+    (aliases == null ? 0 : aliases.hashCode) +
+    (photo == null ? 0 : photo.hashCode) +
+    (notes == null ? 0 : notes.hashCode) +
+    (lastName == null ? 0 : lastName.hashCode) +
+    (firstName == null ? 0 : firstName.hashCode) +
+    (email == null ? 0 : email.hashCode) +
+    (colour == null ? 0 : colour.hashCode);
+
+  @override
+  String toString() => 'Watchlist[id=$id, aliases=$aliases, photo=$photo, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
-    if (aliases != null)
-      json['aliases'] = aliases;
-    if (photo != null)
-      json['photo'] = photo;
-    if (notes != null)
-      json['notes'] = notes;
-    if (lastName != null)
-      json['last_name'] = lastName;
-    if (firstName != null)
-      json['first_name'] = firstName;
-    if (email != null)
-      json['email'] = email;
-    if (colour != null)
-      json['colour'] = colour;
+    final json = <String, dynamic>{};
+      json[r'id'] = id;
+    if (aliases != null) {
+      json[r'aliases'] = aliases;
+    }
+    if (photo != null) {
+      json[r'photo'] = photo;
+    }
+    if (notes != null) {
+      json[r'notes'] = notes;
+    }
+    if (lastName != null) {
+      json[r'last_name'] = lastName;
+    }
+    if (firstName != null) {
+      json[r'first_name'] = firstName;
+    }
+    if (email != null) {
+      json[r'email'] = email;
+    }
+    if (colour != null) {
+      json[r'colour'] = colour;
+    }
     return json;
   }
 
-  static List<Watchlist> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Watchlist>() : json.map((value) => new Watchlist.fromJson(value)).toList();
-  }
+  /// Returns a new [Watchlist] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Watchlist fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : Watchlist(
+        id: json[r'id'],
+        aliases: json[r'aliases'] == null
+          ? null
+          : (json[r'aliases'] as List).cast<String>(),
+        photo: json[r'photo'],
+        notes: json[r'notes'],
+        lastName: json[r'last_name'],
+        firstName: json[r'first_name'],
+        email: json[r'email'],
+        colour: WatchlistColourEnum.fromJson(json[r'colour']),
+    );
+
+  static List<Watchlist> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <Watchlist>[]
+      : json.map((v) => Watchlist.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, Watchlist> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Watchlist>();
+    final map = <String, Watchlist>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Watchlist.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = Watchlist.fromJson(v));
     }
     return map;
   }
+
+  // maps a json object with a list of Watchlist-objects as value to a dart map
+  static Map<String, List<Watchlist>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<Watchlist>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = Watchlist.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
+    }
+    return map;
+  }
+}
+
+
+class WatchlistColourEnum {
+  /// Instantiate a new enum with the provided [value].
+  const WatchlistColourEnum._(this.value);
+
+  /// The underlying value of this enum member.
+  final String value;
+
+  @override
+  String toString() => value;
+
+  String toJson() => value;
+
+  static const RED = WatchlistColourEnum._(r'RED');
+  static const YELLOW = WatchlistColourEnum._(r'YELLOW');
+  static const GREEN = WatchlistColourEnum._(r'GREEN');
+  static const ORANGE = WatchlistColourEnum._(r'ORANGE');
+
+  /// List of all possible values in this [enum][WatchlistColourEnum].
+  static const values = <WatchlistColourEnum>[
+    RED,
+    YELLOW,
+    GREEN,
+    ORANGE,
+  ];
+
+  static WatchlistColourEnum fromJson(dynamic value) =>
+    WatchlistColourEnumTypeTransformer().decode(value);
+
+  static List<WatchlistColourEnum> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <WatchlistColourEnum>[]
+      : json
+          .map((value) => WatchlistColourEnum.fromJson(value))
+          .toList(growable: true == growable);
+}
+
+/// Transformation class that can [encode] an instance of [WatchlistColourEnum] to String,
+/// and [decode] dynamic data back to [WatchlistColourEnum].
+class WatchlistColourEnumTypeTransformer {
+  const WatchlistColourEnumTypeTransformer._();
+
+  factory WatchlistColourEnumTypeTransformer() => _instance ??= WatchlistColourEnumTypeTransformer._();
+
+  String encode(WatchlistColourEnum data) => data.value;
+
+  /// Decodes a [dynamic value][data] to a WatchlistColourEnum.
+  ///
+  /// If [allowNull] is true and the [dynamic value][data] cannot be decoded successfully,
+  /// then null is returned. However, if [allowNull] is false and the [dynamic value][data]
+  /// cannot be decoded successfully, then an [UnimplementedError] is thrown.
+  ///
+  /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
+  /// and users are still using an old app with the old code.
+  WatchlistColourEnum decode(dynamic data, {bool allowNull}) {
+    switch (data) {
+      case r'RED': return WatchlistColourEnum.RED;
+      case r'YELLOW': return WatchlistColourEnum.YELLOW;
+      case r'GREEN': return WatchlistColourEnum.GREEN;
+      case r'ORANGE': return WatchlistColourEnum.ORANGE;
+      default:
+        if (allowNull == false) {
+          throw ArgumentError('Unknown enum value to decode: $data');
+        }
+    }
+    return null;
+  }
+
+  /// Singleton [WatchlistColourEnumTypeTransformer] instance.
+  static WatchlistColourEnumTypeTransformer _instance;
 }
 

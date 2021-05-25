@@ -1,168 +1,280 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
 
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 
 class HostsApi {
-  final ApiClient apiClient;
-
   HostsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+
+  final ApiClient apiClient;
 
   /// Create a Host
   ///
   /// Creates a Host
-  Future<Host> createHost(HostCreateParams hostCreateParams, { String idempotencyKey }) async {
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [HostCreateParams] hostCreateParams (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<Response> createHostWithHttpInfo(HostCreateParams hostCreateParams, { String idempotencyKey }) async {
+    // Verify required params are set.
+    if (hostCreateParams == null) {
+     throw ApiException(HttpStatus.badRequest, 'Missing required param: hostCreateParams');
+    }
+
+    final path = r'/hosts';
+
     Object postBody = hostCreateParams;
 
-    // verify required params are set
-    if(hostCreateParams == null) {
-     throw new ApiException(400, "Missing required param: hostCreateParams");
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (idempotencyKey != null) {
+      headerParams[r'Idempotency-Key'] = parameterToString(idempotencyKey);
     }
 
-    // create path and map variables
-    String path = "/hosts".replaceAll("{format}","json");
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Idempotency-Key"] = idempotencyKey;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'Host') as Host;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
+
+  /// Create a Host
+  ///
+  /// Creates a Host
+  ///
+  /// Parameters:
+  ///
+  /// * [HostCreateParams] hostCreateParams (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<Host> createHost(HostCreateParams hostCreateParams, { String idempotencyKey }) async {
+    final response = await createHostWithHttpInfo(hostCreateParams,  idempotencyKey: idempotencyKey );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Host',) as Host;
+        }
+    return Future<Host>.value(null);
+  }
+
   /// Create multiple Hosts
   ///
-  /// Creates a batch of &#x60;Host&#x60; records in an async queue. Please note, every action taken against this endpoint is recorded in the audit log.
-  Future<BatchJob> createHosts({ String idempotencyKey, HostBatchCreateParams hostBatchCreateParams }) async {
+  /// Creates a batch of `Host` records in an async queue. Please note, every action taken against this endpoint is recorded in the audit log.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  ///
+  /// * [HostBatchCreateParams] hostBatchCreateParams:
+  Future<Response> createHostsWithHttpInfo({ String idempotencyKey, HostBatchCreateParams hostBatchCreateParams }) async {
+    // Verify required params are set.
+
+    final path = r'/hosts/batch';
+
     Object postBody = hostBatchCreateParams;
 
-    // verify required params are set
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/hosts/batch".replaceAll("{format}","json");
+    if (idempotencyKey != null) {
+      headerParams[r'Idempotency-Key'] = parameterToString(idempotencyKey);
+    }
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Idempotency-Key"] = idempotencyKey;
+    final contentTypes = <String>['application/json'];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
 
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'BatchJob') as BatchJob;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
   }
+
+  /// Create multiple Hosts
+  ///
+  /// Creates a batch of `Host` records in an async queue. Please note, every action taken against this endpoint is recorded in the audit log.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  ///
+  /// * [HostBatchCreateParams] hostBatchCreateParams:
+  Future<BatchJob> createHosts({ String idempotencyKey, HostBatchCreateParams hostBatchCreateParams }) async {
+    final response = await createHostsWithHttpInfo( idempotencyKey: idempotencyKey, hostBatchCreateParams: hostBatchCreateParams );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'BatchJob',) as BatchJob;
+        }
+    return Future<BatchJob>.value(null);
+  }
+
   /// List all Hosts
   ///
-  /// Gets a list of all &#x60;Host&#x60; entities.
-  Future<PaginatedHostsList> getHosts({ String query, int limit, int offset, String include }) async {
+  /// Gets a list of all `Host` entities.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] query:
+  ///   Will filter by `first_name`, `last_name`, and `email`
+  ///
+  /// * [int] limit:
+  ///   Limits the results to a specified number, defaults to 50
+  ///
+  /// * [int] offset:
+  ///   Offsets the results to a specified number, defaults to 0
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include
+  Future<Response> getHostsWithHttpInfo({ String query, int limit, int offset, String include }) async {
+    // Verify required params are set.
+
+    final path = r'/hosts';
+
     Object postBody;
 
-    // verify required params are set
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // create path and map variables
-    String path = "/hosts".replaceAll("{format}","json");
-
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(query != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
+    if (query != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'query', query));
     }
-    if(limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "limit", limit));
+    if (limit != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'limit', limit));
     }
-    if(offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
+    if (offset != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'offset', offset));
     }
-    if(include != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "include", include));
+    if (include != null) {
+      queryParams.addAll(_convertParametersForCollectionFormat('', 'include', include));
     }
 
-    List<String> contentTypes = [];
+    final contentTypes = <String>[];
+    final nullableContentType = contentTypes.isNotEmpty ? contentTypes[0] : null;
+    final authNames = <String>[];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
+    if (
+      nullableContentType != null &&
+      nullableContentType.toLowerCase().startsWith('multipart/form-data')
+    ) {
       bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
+      final mp = MultipartRequest(null, null);
+      if (hasFields) {
         postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'PaginatedHostsList') as PaginatedHostsList;
+      }
     } else {
-      return null;
     }
+
+    return await apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      nullableContentType,
+      authNames,
+    );
+  }
+
+  /// List all Hosts
+  ///
+  /// Gets a list of all `Host` entities.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] query:
+  ///   Will filter by `first_name`, `last_name`, and `email`
+  ///
+  /// * [int] limit:
+  ///   Limits the results to a specified number, defaults to 50
+  ///
+  /// * [int] offset:
+  ///   Offsets the results to a specified number, defaults to 0
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include
+  Future<PaginatedHostsList> getHosts({ String query, int limit, int offset, String include }) async {
+    final response = await getHostsWithHttpInfo( query: query, limit: limit, offset: offset, include: include );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body != null && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedHostsList',) as PaginatedHostsList;
+        }
+    return Future<PaginatedHostsList>.value(null);
   }
 }

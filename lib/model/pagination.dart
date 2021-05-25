@@ -1,73 +1,106 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class Pagination {
-  
-  int totalRecords = null;
-  
-  int currentOffset = null;
-  
-  int nextOffset = null;
-  /* The last ID rendered, if the request included the 'after_id' param. */
-  int lastId = null;
-  
-  int limit = null;
-  Pagination();
+  /// Returns a new [Pagination] instance.
+  Pagination({
+    this.totalRecords,
+    this.currentOffset,
+    this.nextOffset,
+    this.lastId,
+    this.limit,
+  });
+
+  int totalRecords;
+
+  int currentOffset;
+
+  int nextOffset;
+
+  /// The last ID rendered, if the request included the 'after_id' param.
+  int lastId;
+
+  int limit;
 
   @override
-  String toString() {
-    return 'Pagination[totalRecords=$totalRecords, currentOffset=$currentOffset, nextOffset=$nextOffset, lastId=$lastId, limit=$limit, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is Pagination &&
+     other.totalRecords == totalRecords &&
+     other.currentOffset == currentOffset &&
+     other.nextOffset == nextOffset &&
+     other.lastId == lastId &&
+     other.limit == limit;
 
-  Pagination.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['total_records'] == null) {
-      totalRecords = null;
-    } else {
-          totalRecords = json['total_records'];
-    }
-    if (json['current_offset'] == null) {
-      currentOffset = null;
-    } else {
-          currentOffset = json['current_offset'];
-    }
-    if (json['next_offset'] == null) {
-      nextOffset = null;
-    } else {
-          nextOffset = json['next_offset'];
-    }
-    if (json['last_id'] == null) {
-      lastId = null;
-    } else {
-          lastId = json['last_id'];
-    }
-    if (json['limit'] == null) {
-      limit = null;
-    } else {
-          limit = json['limit'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (totalRecords == null ? 0 : totalRecords.hashCode) +
+    (currentOffset == null ? 0 : currentOffset.hashCode) +
+    (nextOffset == null ? 0 : nextOffset.hashCode) +
+    (lastId == null ? 0 : lastId.hashCode) +
+    (limit == null ? 0 : limit.hashCode);
+
+  @override
+  String toString() => 'Pagination[totalRecords=$totalRecords, currentOffset=$currentOffset, nextOffset=$nextOffset, lastId=$lastId, limit=$limit]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (totalRecords != null)
-      json['total_records'] = totalRecords;
-    if (currentOffset != null)
-      json['current_offset'] = currentOffset;
-      json['next_offset'] = nextOffset;
-      json['last_id'] = lastId;
-    if (limit != null)
-      json['limit'] = limit;
+    final json = <String, dynamic>{};
+    if (totalRecords != null) {
+      json[r'total_records'] = totalRecords;
+    }
+    if (currentOffset != null) {
+      json[r'current_offset'] = currentOffset;
+    }
+    if (nextOffset != null) {
+      json[r'next_offset'] = nextOffset;
+    }
+    if (lastId != null) {
+      json[r'last_id'] = lastId;
+    }
+    if (limit != null) {
+      json[r'limit'] = limit;
+    }
     return json;
   }
 
-  static List<Pagination> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Pagination>() : json.map((value) => new Pagination.fromJson(value)).toList();
-  }
+  /// Returns a new [Pagination] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Pagination fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : Pagination(
+        totalRecords: json[r'total_records'],
+        currentOffset: json[r'current_offset'],
+        nextOffset: json[r'next_offset'],
+        lastId: json[r'last_id'],
+        limit: json[r'limit'],
+    );
+
+  static List<Pagination> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <Pagination>[]
+      : json.map((v) => Pagination.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, Pagination> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Pagination>();
+    final map = <String, Pagination>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Pagination.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = Pagination.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of Pagination-objects as value to a dart map
+  static Map<String, List<Pagination>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<Pagination>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = Pagination.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }

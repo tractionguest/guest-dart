@@ -1,111 +1,152 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class Docusign {
-  /*  */
-  String templateId = null;
-  /*  */
-  String integration = null;
-  /*  */
-  String ndaStatus = null;
-  /*  */
-  DateTime ndaSignedDate = null;
-  /*  */
-  String envelopeId = null;
-  /*  */
-  String sequence = null;
-  /*  */
-  String docusignId = null;
-  /*  */
-  String docusignName = null;
-  /*  */
-  String title = null;
-  Docusign();
+  /// Returns a new [Docusign] instance.
+  Docusign({
+    this.templateId,
+    this.integration,
+    this.ndaStatus,
+    this.ndaSignedDate,
+    this.envelopeId,
+    this.sequence,
+    this.docusignId,
+    this.docusignName,
+    this.title,
+  });
+
+  /// 
+  String templateId;
+
+  /// 
+  String integration;
+
+  /// 
+  String ndaStatus;
+
+  /// 
+  DateTime ndaSignedDate;
+
+  /// 
+  String envelopeId;
+
+  /// 
+  String sequence;
+
+  /// 
+  String docusignId;
+
+  /// 
+  String docusignName;
+
+  /// 
+  String title;
 
   @override
-  String toString() {
-    return 'Docusign[templateId=$templateId, integration=$integration, ndaStatus=$ndaStatus, ndaSignedDate=$ndaSignedDate, envelopeId=$envelopeId, sequence=$sequence, docusignId=$docusignId, docusignName=$docusignName, title=$title, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is Docusign &&
+     other.templateId == templateId &&
+     other.integration == integration &&
+     other.ndaStatus == ndaStatus &&
+     other.ndaSignedDate == ndaSignedDate &&
+     other.envelopeId == envelopeId &&
+     other.sequence == sequence &&
+     other.docusignId == docusignId &&
+     other.docusignName == docusignName &&
+     other.title == title;
 
-  Docusign.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['template_id'] == null) {
-      templateId = null;
-    } else {
-          templateId = json['template_id'];
-    }
-    if (json['integration'] == null) {
-      integration = null;
-    } else {
-          integration = json['integration'];
-    }
-    if (json['nda_status'] == null) {
-      ndaStatus = null;
-    } else {
-          ndaStatus = json['nda_status'];
-    }
-    if (json['nda_signed_date'] == null) {
-      ndaSignedDate = null;
-    } else {
-      ndaSignedDate = DateTime.parse(json['nda_signed_date']);
-    }
-    if (json['envelope_id'] == null) {
-      envelopeId = null;
-    } else {
-          envelopeId = json['envelope_id'];
-    }
-    if (json['sequence'] == null) {
-      sequence = null;
-    } else {
-          sequence = json['sequence'];
-    }
-    if (json['docusign_id'] == null) {
-      docusignId = null;
-    } else {
-          docusignId = json['docusign_id'];
-    }
-    if (json['docusign_name'] == null) {
-      docusignName = null;
-    } else {
-          docusignName = json['docusign_name'];
-    }
-    if (json['title'] == null) {
-      title = null;
-    } else {
-          title = json['title'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (templateId == null ? 0 : templateId.hashCode) +
+    (integration == null ? 0 : integration.hashCode) +
+    (ndaStatus == null ? 0 : ndaStatus.hashCode) +
+    (ndaSignedDate == null ? 0 : ndaSignedDate.hashCode) +
+    (envelopeId == null ? 0 : envelopeId.hashCode) +
+    (sequence == null ? 0 : sequence.hashCode) +
+    (docusignId == null ? 0 : docusignId.hashCode) +
+    (docusignName == null ? 0 : docusignName.hashCode) +
+    (title == null ? 0 : title.hashCode);
+
+  @override
+  String toString() => 'Docusign[templateId=$templateId, integration=$integration, ndaStatus=$ndaStatus, ndaSignedDate=$ndaSignedDate, envelopeId=$envelopeId, sequence=$sequence, docusignId=$docusignId, docusignName=$docusignName, title=$title]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (templateId != null)
-      json['template_id'] = templateId;
-    if (integration != null)
-      json['integration'] = integration;
-    if (ndaStatus != null)
-      json['nda_status'] = ndaStatus;
-    if (ndaSignedDate != null)
-      json['nda_signed_date'] = ndaSignedDate == null ? null : ndaSignedDate.toUtc().toIso8601String();
-    if (envelopeId != null)
-      json['envelope_id'] = envelopeId;
-    if (sequence != null)
-      json['sequence'] = sequence;
-    if (docusignId != null)
-      json['docusign_id'] = docusignId;
-    if (docusignName != null)
-      json['docusign_name'] = docusignName;
-    if (title != null)
-      json['title'] = title;
+    final json = <String, dynamic>{};
+    if (templateId != null) {
+      json[r'template_id'] = templateId;
+    }
+    if (integration != null) {
+      json[r'integration'] = integration;
+    }
+    if (ndaStatus != null) {
+      json[r'nda_status'] = ndaStatus;
+    }
+    if (ndaSignedDate != null) {
+      json[r'nda_signed_date'] = ndaSignedDate.toUtc().toIso8601String();
+    }
+    if (envelopeId != null) {
+      json[r'envelope_id'] = envelopeId;
+    }
+    if (sequence != null) {
+      json[r'sequence'] = sequence;
+    }
+    if (docusignId != null) {
+      json[r'docusign_id'] = docusignId;
+    }
+    if (docusignName != null) {
+      json[r'docusign_name'] = docusignName;
+    }
+    if (title != null) {
+      json[r'title'] = title;
+    }
     return json;
   }
 
-  static List<Docusign> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Docusign>() : json.map((value) => new Docusign.fromJson(value)).toList();
-  }
+  /// Returns a new [Docusign] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Docusign fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : Docusign(
+        templateId: json[r'template_id'],
+        integration: json[r'integration'],
+        ndaStatus: json[r'nda_status'],
+        ndaSignedDate: json[r'nda_signed_date'] == null
+          ? null
+          : DateTime.parse(json[r'nda_signed_date']),
+        envelopeId: json[r'envelope_id'],
+        sequence: json[r'sequence'],
+        docusignId: json[r'docusign_id'],
+        docusignName: json[r'docusign_name'],
+        title: json[r'title'],
+    );
+
+  static List<Docusign> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <Docusign>[]
+      : json.map((v) => Docusign.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, Docusign> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Docusign>();
+    final map = <String, Docusign>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Docusign.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = Docusign.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of Docusign-objects as value to a dart map
+  static Map<String, List<Docusign>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<Docusign>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = Docusign.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }

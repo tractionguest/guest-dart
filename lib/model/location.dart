@@ -1,64 +1,94 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class Location {
-  
-  int id = null;
-  
-  String name = null;
-  /* Maximum capacity of a location */
-  int maxCapacity = null;
-  /*  IANA timezone designations */
-  String timezone = null;
-  Location();
+  /// Returns a new [Location] instance.
+  Location({
+    @required this.id,
+    @required this.name,
+    this.maxCapacity,
+    this.timezone,
+  });
+
+  int id;
+
+  String name;
+
+  /// Maximum capacity of a location
+  int maxCapacity;
+
+  ///  IANA timezone designations
+  String timezone;
 
   @override
-  String toString() {
-    return 'Location[id=$id, name=$name, maxCapacity=$maxCapacity, timezone=$timezone, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is Location &&
+     other.id == id &&
+     other.name == name &&
+     other.maxCapacity == maxCapacity &&
+     other.timezone == timezone;
 
-  Location.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['id'] == null) {
-      id = null;
-    } else {
-          id = json['id'];
-    }
-    if (json['name'] == null) {
-      name = null;
-    } else {
-          name = json['name'];
-    }
-    if (json['max_capacity'] == null) {
-      maxCapacity = null;
-    } else {
-          maxCapacity = json['max_capacity'];
-    }
-    if (json['timezone'] == null) {
-      timezone = null;
-    } else {
-          timezone = json['timezone'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (id == null ? 0 : id.hashCode) +
+    (name == null ? 0 : name.hashCode) +
+    (maxCapacity == null ? 0 : maxCapacity.hashCode) +
+    (timezone == null ? 0 : timezone.hashCode);
+
+  @override
+  String toString() => 'Location[id=$id, name=$name, maxCapacity=$maxCapacity, timezone=$timezone]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (id != null)
-      json['id'] = id;
-    if (name != null)
-      json['name'] = name;
-      json['max_capacity'] = maxCapacity;
-      json['timezone'] = timezone;
+    final json = <String, dynamic>{};
+      json[r'id'] = id;
+      json[r'name'] = name;
+    if (maxCapacity != null) {
+      json[r'max_capacity'] = maxCapacity;
+    }
+    if (timezone != null) {
+      json[r'timezone'] = timezone;
+    }
     return json;
   }
 
-  static List<Location> listFromJson(List<dynamic> json) {
-    return json == null ? new List<Location>() : json.map((value) => new Location.fromJson(value)).toList();
-  }
+  /// Returns a new [Location] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static Location fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : Location(
+        id: json[r'id'],
+        name: json[r'name'],
+        maxCapacity: json[r'max_capacity'],
+        timezone: json[r'timezone'],
+    );
+
+  static List<Location> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <Location>[]
+      : json.map((v) => Location.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, Location> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, Location>();
+    final map = <String, Location>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new Location.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = Location.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of Location-objects as value to a dart map
+  static Map<String, List<Location>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<Location>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = Location.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }

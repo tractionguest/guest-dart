@@ -1,0 +1,16 @@
+# openapi.model.PaginatedSigninsList
+
+## Load the model package
+```dart
+import 'package:openapi/api.dart';
+```
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**pagination** | [**Pagination**](Pagination.md) |  | 
+**signins** | [**List<Signin>**](Signin.md) |  | [default to const []]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

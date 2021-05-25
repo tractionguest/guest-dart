@@ -1,57 +1,90 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.0
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 class SigninUpdateParams {
-  /* Used to sign out the `Signin`, can only be set to `true`. */
-  bool isSignedOut = null;
-  /* Used to acknowledge the `Signin`, can only be set to `true`. */
-  bool isAcknowledged = null;
-  /* Used when keeping track of people in emergency situations */
-  bool isAccountedFor = null;
-  SigninUpdateParams();
+  /// Returns a new [SigninUpdateParams] instance.
+  SigninUpdateParams({
+    this.isSignedOut,
+    this.isAcknowledged,
+    this.isAccountedFor,
+  });
+
+  /// Used to sign out the `Signin`, can only be set to `true`.
+  bool isSignedOut;
+
+  /// Used to acknowledge the `Signin`, can only be set to `true`.
+  bool isAcknowledged;
+
+  /// Used when keeping track of people in emergency situations
+  bool isAccountedFor;
 
   @override
-  String toString() {
-    return 'SigninUpdateParams[isSignedOut=$isSignedOut, isAcknowledged=$isAcknowledged, isAccountedFor=$isAccountedFor, ]';
-  }
+  bool operator ==(Object other) => identical(this, other) || other is SigninUpdateParams &&
+     other.isSignedOut == isSignedOut &&
+     other.isAcknowledged == isAcknowledged &&
+     other.isAccountedFor == isAccountedFor;
 
-  SigninUpdateParams.fromJson(Map<String, dynamic> json) {
-    if (json == null) return;
-    if (json['is_signed_out'] == null) {
-      isSignedOut = null;
-    } else {
-          isSignedOut = json['is_signed_out'];
-    }
-    if (json['is_acknowledged'] == null) {
-      isAcknowledged = null;
-    } else {
-          isAcknowledged = json['is_acknowledged'];
-    }
-    if (json['is_accounted_for'] == null) {
-      isAccountedFor = null;
-    } else {
-          isAccountedFor = json['is_accounted_for'];
-    }
-  }
+  @override
+  int get hashCode =>
+    (isSignedOut == null ? 0 : isSignedOut.hashCode) +
+    (isAcknowledged == null ? 0 : isAcknowledged.hashCode) +
+    (isAccountedFor == null ? 0 : isAccountedFor.hashCode);
+
+  @override
+  String toString() => 'SigninUpdateParams[isSignedOut=$isSignedOut, isAcknowledged=$isAcknowledged, isAccountedFor=$isAccountedFor]';
 
   Map<String, dynamic> toJson() {
-    Map <String, dynamic> json = {};
-    if (isSignedOut != null)
-      json['is_signed_out'] = isSignedOut;
-    if (isAcknowledged != null)
-      json['is_acknowledged'] = isAcknowledged;
-    if (isAccountedFor != null)
-      json['is_accounted_for'] = isAccountedFor;
+    final json = <String, dynamic>{};
+    if (isSignedOut != null) {
+      json[r'is_signed_out'] = isSignedOut;
+    }
+    if (isAcknowledged != null) {
+      json[r'is_acknowledged'] = isAcknowledged;
+    }
+    if (isAccountedFor != null) {
+      json[r'is_accounted_for'] = isAccountedFor;
+    }
     return json;
   }
 
-  static List<SigninUpdateParams> listFromJson(List<dynamic> json) {
-    return json == null ? new List<SigninUpdateParams>() : json.map((value) => new SigninUpdateParams.fromJson(value)).toList();
-  }
+  /// Returns a new [SigninUpdateParams] instance and imports its values from
+  /// [json] if it's non-null, null if [json] is null.
+  static SigninUpdateParams fromJson(Map<String, dynamic> json) => json == null
+    ? null
+    : SigninUpdateParams(
+        isSignedOut: json[r'is_signed_out'],
+        isAcknowledged: json[r'is_acknowledged'],
+        isAccountedFor: json[r'is_accounted_for'],
+    );
+
+  static List<SigninUpdateParams> listFromJson(List<dynamic> json, {bool emptyIsNull, bool growable,}) =>
+    json == null || json.isEmpty
+      ? true == emptyIsNull ? null : <SigninUpdateParams>[]
+      : json.map((v) => SigninUpdateParams.fromJson(v)).toList(growable: true == growable);
 
   static Map<String, SigninUpdateParams> mapFromJson(Map<String, dynamic> json) {
-    var map = new Map<String, SigninUpdateParams>();
+    final map = <String, SigninUpdateParams>{};
     if (json != null && json.isNotEmpty) {
-      json.forEach((String key, dynamic value) => map[key] = new SigninUpdateParams.fromJson(value));
+      json.forEach((String key, dynamic v) => map[key] = SigninUpdateParams.fromJson(v));
+    }
+    return map;
+  }
+
+  // maps a json object with a list of SigninUpdateParams-objects as value to a dart map
+  static Map<String, List<SigninUpdateParams>> mapListFromJson(Map<String, dynamic> json, {bool emptyIsNull, bool growable,}) {
+    final map = <String, List<SigninUpdateParams>>{};
+    if (json != null && json.isNotEmpty) {
+      json.forEach((String key, dynamic v) {
+        map[key] = SigninUpdateParams.listFromJson(v, emptyIsNull: emptyIsNull, growable: growable);
+      });
     }
     return map;
   }
