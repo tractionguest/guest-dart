@@ -16,11 +16,13 @@ class WatchlistCreateParams {
   //enum colourEnum {  RED,  YELLOW,  GREEN,  ORANGE,  };{
   /* A base64 encoded image. base64_image should be strict encoded  */
   String base64Image = null;
+  
+  String driverLicense = null;
   WatchlistCreateParams();
 
   @override
   String toString() {
-    return 'WatchlistCreateParams[aliases=$aliases, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, base64Image=$base64Image, ]';
+    return 'WatchlistCreateParams[aliases=$aliases, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, base64Image=$base64Image, driverLicense=$driverLicense, ]';
   }
 
   WatchlistCreateParams.fromJson(Map<String, dynamic> json) {
@@ -60,6 +62,11 @@ class WatchlistCreateParams {
     } else {
           base64Image = json['base64_image'];
     }
+    if (json['driver_license'] == null) {
+      driverLicense = null;
+    } else {
+          driverLicense = json['driver_license'];
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -78,6 +85,8 @@ class WatchlistCreateParams {
       json['colour'] = colour;
     if (base64Image != null)
       json['base64_image'] = base64Image;
+    if (driverLicense != null)
+      json['driver_license'] = driverLicense;
     return json;
   }
 

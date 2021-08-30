@@ -18,11 +18,13 @@ class Watchlist {
   
   String colour = null;
   //enum colourEnum {  RED,  YELLOW,  GREEN,  ORANGE,  };{
+  
+  String driverLicense = null;
   Watchlist();
 
   @override
   String toString() {
-    return 'Watchlist[id=$id, aliases=$aliases, photo=$photo, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, ]';
+    return 'Watchlist[id=$id, aliases=$aliases, photo=$photo, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, driverLicense=$driverLicense, ]';
   }
 
   Watchlist.fromJson(Map<String, dynamic> json) {
@@ -67,6 +69,11 @@ class Watchlist {
     } else {
           colour = json['colour'];
     }
+    if (json['driver_license'] == null) {
+      driverLicense = null;
+    } else {
+          driverLicense = json['driver_license'];
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -87,6 +94,8 @@ class Watchlist {
       json['email'] = email;
     if (colour != null)
       json['colour'] = colour;
+    if (driverLicense != null)
+      json['driver_license'] = driverLicense;
     return json;
   }
 
