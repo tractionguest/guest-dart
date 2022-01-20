@@ -20,11 +20,15 @@ class Watchlist {
   //enum colourEnum {  RED,  YELLOW,  GREEN,  ORANGE,  };{
   
   String driverLicense = null;
+  
+  DateTime createdAt = null;
+  
+  DateTime updatedAt = null;
   Watchlist();
 
   @override
   String toString() {
-    return 'Watchlist[id=$id, aliases=$aliases, photo=$photo, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, driverLicense=$driverLicense, ]';
+    return 'Watchlist[id=$id, aliases=$aliases, photo=$photo, notes=$notes, lastName=$lastName, firstName=$firstName, email=$email, colour=$colour, driverLicense=$driverLicense, createdAt=$createdAt, updatedAt=$updatedAt, ]';
   }
 
   Watchlist.fromJson(Map<String, dynamic> json) {
@@ -74,6 +78,16 @@ class Watchlist {
     } else {
           driverLicense = json['driver_license'];
     }
+    if (json['created_at'] == null) {
+      createdAt = null;
+    } else {
+      createdAt = DateTime.parse(json['created_at']);
+    }
+    if (json['updated_at'] == null) {
+      updatedAt = null;
+    } else {
+      updatedAt = DateTime.parse(json['updated_at']);
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -96,6 +110,10 @@ class Watchlist {
       json['colour'] = colour;
     if (driverLicense != null)
       json['driver_license'] = driverLicense;
+    if (createdAt != null)
+      json['created_at'] = createdAt == null ? null : createdAt.toUtc().toIso8601String();
+    if (updatedAt != null)
+      json['updated_at'] = updatedAt == null ? null : updatedAt.toUtc().toIso8601String();
     return json;
   }
 
