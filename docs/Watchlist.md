@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **email** | **String** |  | [optional] [default to null]
 **colour** | **String** |  | [optional] [default to null]
 **driverLicense** | **String** |  | [optional] [default to null]
+**createdAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
+**updatedAt** | [**DateTime**](DateTime.md) |  | [optional] [default to null]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

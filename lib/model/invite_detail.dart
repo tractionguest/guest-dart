@@ -22,14 +22,18 @@ class InviteDetail {
   Location location = null;
   
   List<Host> hosts = [];
-  
+  /* Deprecated. Use `start_date_utc` instead. */
   DateTime startDate = null;
+  
+  DateTime startDateUtc = null;
   
   String lastName = null;
   
   String firstName = null;
-  
+  /* Deprecated. Use `end_date_utc` instead. */
   DateTime endDate = null;
+  
+  DateTime endDateUtc = null;
   
   String email = null;
   
@@ -44,7 +48,7 @@ class InviteDetail {
 
   @override
   String toString() {
-    return 'InviteDetail[id=$id, registration=$registration, mobileNumber=$mobileNumber, emailTemplate=$emailTemplate, inviteWatchlist=$inviteWatchlist, notificationTriggers=$notificationTriggers, customFields=$customFields, watchlistColour=$watchlistColour, location=$location, hosts=$hosts, startDate=$startDate, lastName=$lastName, firstName=$firstName, endDate=$endDate, email=$email, createdAt=$createdAt, company=$company, checkedIn=$checkedIn, groupVisit=$groupVisit, ]';
+    return 'InviteDetail[id=$id, registration=$registration, mobileNumber=$mobileNumber, emailTemplate=$emailTemplate, inviteWatchlist=$inviteWatchlist, notificationTriggers=$notificationTriggers, customFields=$customFields, watchlistColour=$watchlistColour, location=$location, hosts=$hosts, startDate=$startDate, startDateUtc=$startDateUtc, lastName=$lastName, firstName=$firstName, endDate=$endDate, endDateUtc=$endDateUtc, email=$email, createdAt=$createdAt, company=$company, checkedIn=$checkedIn, groupVisit=$groupVisit, ]';
   }
 
   InviteDetail.fromJson(Map<String, dynamic> json) {
@@ -104,6 +108,11 @@ class InviteDetail {
     } else {
       startDate = DateTime.parse(json['start_date']);
     }
+    if (json['start_date_utc'] == null) {
+      startDateUtc = null;
+    } else {
+      startDateUtc = DateTime.parse(json['start_date_utc']);
+    }
     if (json['last_name'] == null) {
       lastName = null;
     } else {
@@ -118,6 +127,11 @@ class InviteDetail {
       endDate = null;
     } else {
       endDate = DateTime.parse(json['end_date']);
+    }
+    if (json['end_date_utc'] == null) {
+      endDateUtc = null;
+    } else {
+      endDateUtc = DateTime.parse(json['end_date_utc']);
     }
     if (json['email'] == null) {
       email = null;
@@ -170,12 +184,16 @@ class InviteDetail {
       json['hosts'] = hosts;
     if (startDate != null)
       json['start_date'] = startDate == null ? null : startDate.toUtc().toIso8601String();
+    if (startDateUtc != null)
+      json['start_date_utc'] = startDateUtc == null ? null : startDateUtc.toUtc().toIso8601String();
     if (lastName != null)
       json['last_name'] = lastName;
     if (firstName != null)
       json['first_name'] = firstName;
     if (endDate != null)
       json['end_date'] = endDate == null ? null : endDate.toUtc().toIso8601String();
+    if (endDateUtc != null)
+      json['end_date_utc'] = endDateUtc == null ? null : endDateUtc.toUtc().toIso8601String();
     if (email != null)
       json['email'] = email;
     if (createdAt != null)

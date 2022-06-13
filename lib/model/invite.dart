@@ -9,8 +9,10 @@ class Invite {
   String mobileNumber = null;
   /*  */
   String email = null;
-  /*  */
+  /* Deprecated. Use `end_date_utc` instead. */
   DateTime endDate = null;
+  /*  */
+  DateTime endDateUtc = null;
   
   InviteWatchlist inviteWatchlist = null;
   
@@ -20,8 +22,10 @@ class Invite {
   //enum watchlistColourEnum {  RED,  GREEN,  YELLOW,  ORANGE,  };{
   
   Location location = null;
-  
+  /* Deprecated. Use `start_date_utc` instead. */
   DateTime startDate = null;
+  
+  DateTime startDateUtc = null;
   
   String lastName = null;
   
@@ -32,7 +36,7 @@ class Invite {
 
   @override
   String toString() {
-    return 'Invite[id=$id, registration=$registration, mobileNumber=$mobileNumber, email=$email, endDate=$endDate, inviteWatchlist=$inviteWatchlist, hosts=$hosts, watchlistColour=$watchlistColour, location=$location, startDate=$startDate, lastName=$lastName, firstName=$firstName, groupVisit=$groupVisit, ]';
+    return 'Invite[id=$id, registration=$registration, mobileNumber=$mobileNumber, email=$email, endDate=$endDate, endDateUtc=$endDateUtc, inviteWatchlist=$inviteWatchlist, hosts=$hosts, watchlistColour=$watchlistColour, location=$location, startDate=$startDate, startDateUtc=$startDateUtc, lastName=$lastName, firstName=$firstName, groupVisit=$groupVisit, ]';
   }
 
   Invite.fromJson(Map<String, dynamic> json) {
@@ -62,6 +66,11 @@ class Invite {
     } else {
       endDate = DateTime.parse(json['end_date']);
     }
+    if (json['end_date_utc'] == null) {
+      endDateUtc = null;
+    } else {
+      endDateUtc = DateTime.parse(json['end_date_utc']);
+    }
     if (json['invite_watchlist'] == null) {
       inviteWatchlist = null;
     } else {
@@ -86,6 +95,11 @@ class Invite {
       startDate = null;
     } else {
       startDate = DateTime.parse(json['start_date']);
+    }
+    if (json['start_date_utc'] == null) {
+      startDateUtc = null;
+    } else {
+      startDateUtc = DateTime.parse(json['start_date_utc']);
     }
     if (json['last_name'] == null) {
       lastName = null;
@@ -113,6 +127,7 @@ class Invite {
       json['mobile_number'] = mobileNumber;
       json['email'] = email;
       json['end_date'] = endDate == null ? null : endDate.toUtc().toIso8601String();
+      json['end_date_utc'] = endDateUtc == null ? null : endDateUtc.toUtc().toIso8601String();
     if (inviteWatchlist != null)
       json['invite_watchlist'] = inviteWatchlist;
     if (hosts != null)
@@ -122,6 +137,8 @@ class Invite {
       json['location'] = location;
     if (startDate != null)
       json['start_date'] = startDate == null ? null : startDate.toUtc().toIso8601String();
+    if (startDateUtc != null)
+      json['start_date_utc'] = startDateUtc == null ? null : startDateUtc.toUtc().toIso8601String();
       json['last_name'] = lastName;
       json['first_name'] = firstName;
     if (groupVisit != null)
