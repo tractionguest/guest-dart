@@ -31,11 +31,13 @@ class InviteUpdateParams {
   String company = null;
   
   int groupVisitId = null;
+  
+  String licensePlate = null;
   InviteUpdateParams();
 
   @override
   String toString() {
-    return 'InviteUpdateParams[mobileNumber=$mobileNumber, userId=$userId, onPremise=$onPremise, notificationTriggers=$notificationTriggers, firstName=$firstName, emailTemplateId=$emailTemplateId, customFields=$customFields, hostIds=$hostIds, title=$title, startDate=$startDate, lastName=$lastName, endDate=$endDate, email=$email, company=$company, groupVisitId=$groupVisitId, ]';
+    return 'InviteUpdateParams[mobileNumber=$mobileNumber, userId=$userId, onPremise=$onPremise, notificationTriggers=$notificationTriggers, firstName=$firstName, emailTemplateId=$emailTemplateId, customFields=$customFields, hostIds=$hostIds, title=$title, startDate=$startDate, lastName=$lastName, endDate=$endDate, email=$email, company=$company, groupVisitId=$groupVisitId, licensePlate=$licensePlate, ]';
   }
 
   InviteUpdateParams.fromJson(Map<String, dynamic> json) {
@@ -115,6 +117,11 @@ class InviteUpdateParams {
     } else {
           groupVisitId = json['group_visit_id'];
     }
+    if (json['license_plate'] == null) {
+      licensePlate = null;
+    } else {
+          licensePlate = json['license_plate'];
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -149,6 +156,8 @@ class InviteUpdateParams {
       json['company'] = company;
     if (groupVisitId != null)
       json['group_visit_id'] = groupVisitId;
+    if (licensePlate != null)
+      json['license_plate'] = licensePlate;
     return json;
   }
 
