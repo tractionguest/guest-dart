@@ -1,63 +1,85 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
 
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 
 class UsersApi {
-  final ApiClient apiClient;
+  UsersApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  UsersApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  final ApiClient apiClient;
 
   /// Get the current User
   ///
-  /// Gets the details of a single instance of the current &#x60;User&#x60;.
-  Future<User> getCurrentUser(String userId, { String include }) async {
-    Object postBody;
+  /// Gets the details of a single instance of the current `User`.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] userId (required):
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include
+  Future<Response> getCurrentUserWithHttpInfo(String userId, { String? include, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/users/{user_id}'
+      .replaceAll('{user_id}', userId);
 
-    // verify required params are set
-    if(userId == null) {
-     throw new ApiException(400, "Missing required param: userId");
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (include != null) {
+      queryParams.addAll(_queryParams('', 'include', include));
     }
 
-    // create path and map variables
-    String path = "/users/{user_id}".replaceAll("{format}","json").replaceAll("{" + "user_id" + "}", userId.toString());
+    const contentTypes = <String>[];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(include != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "include", include));
+
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Get the current User
+  ///
+  /// Gets the details of a single instance of the current `User`.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] userId (required):
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include
+  Future<UserV1?> getCurrentUser(String userId, { String? include, }) async {
+    final response = await getCurrentUserWithHttpInfo(userId,  include: include, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'UserV1',) as UserV1;
+    
     }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'User') as User;
-    } else {
-      return null;
-    }
+    return null;
   }
 }
