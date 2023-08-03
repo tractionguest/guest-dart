@@ -1,17 +1,36 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:guest_sdk/api.dart';
 import 'package:test/test.dart';
 
 
 /// tests for InvitesApi
 void main() {
-  var instance = new InvitesApi();
+  // final instance = InvitesApi();
 
   group('tests for InvitesApi', () {
+    // Delete Multiple Invites
+    //
+    // Queues up a \"delete\" background task for one or more `Invite` entities.
+    //
+    //Future<BatchJobV1> batchDeleteInvites({ IdentifierListV1 identifierListV1 }) async
+    test('test batchDeleteInvites', () async {
+      // TODO
+    });
+
     // Create an Invite
     //
     // Creates a new `Invite` for a specific `Location`.
     //
-    //Future<InviteDetail> createLocationInvite(String locationId, InviteCreateParams inviteCreateParams, { String idempotencyKey }) async 
+    //Future<InviteDetailV1> createLocationInvite(String locationId, InviteCreateParamsV1 inviteCreateParamsV1, { String idempotencyKey }) async
     test('test createLocationInvite', () async {
       // TODO
     });
@@ -20,7 +39,7 @@ void main() {
     //
     // Creates a new `Invite` from `Registration` data.
     //
-    //Future<InviteDetail> createRegistrationInvite(String registrationId, { String idempotencyKey }) async 
+    //Future<InviteDetailV1> createRegistrationInvite(String registrationId, { String idempotencyKey }) async
     test('test createRegistrationInvite', () async {
       // TODO
     });
@@ -29,7 +48,7 @@ void main() {
     //
     // Deletes a single instance of `Invite`
     //
-    //Future deleteInvite(String inviteId, { String idempotencyKey }) async 
+    //Future deleteInvite(String inviteId, { String idempotencyKey }) async
     test('test deleteInvite', () async {
       // TODO
     });
@@ -38,7 +57,7 @@ void main() {
     //
     // Gets the details of a single instance of a `Invite`.
     //
-    //Future<InviteDetail> getInvite(String inviteId, { String include }) async 
+    //Future<InviteDetailV1> getInvite(String inviteId, { String include }) async
     test('test getInvite', () async {
       // TODO
     });
@@ -47,7 +66,7 @@ void main() {
     //
     // Gets a list of all `Invite` entities.
     //
-    //Future<PaginatedInvitesList> getInvites({ int limit, int offset, String query, String withColours, String locationIds, String sortBy, DateTime startsBefore, DateTime startsAfter, String include, bool isApproved, DateTime activeAfter, DateTime activeBefore }) async 
+    //Future<PaginatedInvitesListV1> getInvites({ int limit, int offset, String query, String withColours, String locationIds, String sortBy, DateTime startsBefore, DateTime startsAfter, String include, bool isApproved, DateTime activeAfter, DateTime activeBefore }) async
     test('test getInvites', () async {
       // TODO
     });
@@ -56,7 +75,7 @@ void main() {
     //
     // Updates an existing `Invite`.
     //
-    //Future<InviteDetail> updateInvite(String inviteId, InviteUpdateParams inviteUpdateParams, { String idempotencyKey }) async 
+    //Future<InviteDetailV1> updateInvite(String inviteId, InviteUpdateParamsV1 inviteUpdateParamsV1, { String idempotencyKey }) async
     test('test updateInvite', () async {
       // TODO
     });

@@ -1,17 +1,27 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
+
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:guest_sdk/api.dart';
 import 'package:test/test.dart';
 
 
 /// tests for SigninsApi
 void main() {
-  var instance = new SigninsApi();
+  // final instance = SigninsApi();
 
   group('tests for SigninsApi', () {
     // Create Signin
     //
     // Creates a Signin
     //
-    //Future<Signin> createSignin({ SigninCreateParams signinCreateParams }) async 
+    //Future<SigninV1> createSignin({ SigninCreateParamsV1 signinCreateParamsV1 }) async
     test('test createSignin', () async {
       // TODO
     });
@@ -20,7 +30,7 @@ void main() {
     //
     // Gets the details of a single instance of a `Signin`.
     //
-    //Future<SigninDetail> getSignin(String signinId, { String include }) async 
+    //Future<SigninDetailV1> getSignin(String signinId, { String include }) async
     test('test getSignin', () async {
       // TODO
     });
@@ -29,7 +39,7 @@ void main() {
     //
     // Gets a list of all `Signin` entities.
     //
-    //Future<PaginatedSigninsList> getSignins({ String locationIds, String withColours, String query, bool withAcknowledged, bool withSignedIn, DateTime signinBefore, DateTime signinAfter, int limit, int offset, String querySort, String include }) async 
+    //Future<PaginatedSigninsListV1> getSignins({ String locationIds, String withColours, String query, bool withAcknowledged, bool withSignedIn, DateTime signinBefore, DateTime signinAfter, int limit, int offset, String querySort, String include }) async
     test('test getSignins', () async {
       // TODO
     });
@@ -38,7 +48,7 @@ void main() {
     //
     // Update, acknowledge, or `Signout` a `Signin`
     //
-    //Future<SigninDetail> updateSignin(String signinId, SigninUpdateParams signinUpdateParams, { String idempotencyKey }) async 
+    //Future<SigninDetailV1> updateSignin(String signinId, SigninUpdateParamsV1 signinUpdateParamsV1, { String idempotencyKey }) async
     test('test updateSignin', () async {
       // TODO
     });
