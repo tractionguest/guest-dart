@@ -1,128 +1,191 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
 
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 
 class AuditLogsApi {
-  final ApiClient apiClient;
+  AuditLogsApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  AuditLogsApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  final ApiClient apiClient;
 
   /// Get an AuditLog
   ///
-  /// Gets the details of a single instance of an &#x60;AuditLog&#x60;.
-  Future<AuditLog> getAuditLog(String auditLogId) async {
-    Object postBody;
+  /// Gets the details of a single instance of an `AuditLog`.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] auditLogId (required):
+  Future<Response> getAuditLogWithHttpInfo(String auditLogId,) async {
+    // ignore: prefer_const_declarations
+    final path = r'/audit_logs/{audit_log_id}'
+      .replaceAll('{audit_log_id}', auditLogId);
 
-    // verify required params are set
-    if(auditLogId == null) {
-     throw new ApiException(400, "Missing required param: auditLogId");
-    }
+    // ignore: prefer_final_locals
+    Object? postBody;
 
-    // create path and map variables
-    String path = "/audit_logs/{audit_log_id}".replaceAll("{format}","json").replaceAll("{" + "audit_log_id" + "}", auditLogId.toString());
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
+    const contentTypes = <String>[];
 
-    List<String> contentTypes = [];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'AuditLog') as AuditLog;
-    } else {
-      return null;
-    }
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
+
+  /// Get an AuditLog
+  ///
+  /// Gets the details of a single instance of an `AuditLog`.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] auditLogId (required):
+  Future<AuditLogV1?> getAuditLog(String auditLogId,) async {
+    final response = await getAuditLogWithHttpInfo(auditLogId,);
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'AuditLogV1',) as AuditLogV1;
+    
+    }
+    return null;
+  }
+
   /// List all AuditLogs
   ///
-  /// Gets a list of all &#x60;AuditLog&#x60; entities.
-  Future<PaginatedAuditLogsList> getAuditLogs({ int limit, int offset, String sortBy, int auditableId, String auditableType, String actionType, int userId }) async {
-    Object postBody;
+  /// Gets a list of all `AuditLog` entities.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Limits the results to a specified number, defaults to 50
+  ///
+  /// * [int] offset:
+  ///   Offsets the results to a specified number, defaults to 0
+  ///
+  /// * [String] sortBy:
+  ///   Sorts by the field name and direction provided where the pattern is `FIELD_NAME_DIRECTION`
+  ///
+  /// * [int] auditableId:
+  ///   The unique ID of a model that has associated audit logs
+  ///
+  /// * [String] auditableType:
+  ///   The name of the model that has associated audit logs. Valid values include: - `user` - `device_configuration` - `signin` - `invite` - `watchlist_record` - `account_preference` - `signout` - `host` - `invite_watchlist` - `location_preference` - `parking_lot` - `parking_stall` - `permission_bundle` - `person` - `physical_access_grant` - `physical_access_provider` - `physical_access_rule` - `security_badge_type` - `signin_watchlist` - `user_group_physical_access_rule` - `visitor` - `bulk_data_batch` 
+  ///
+  /// * [String] actionType:
+  ///   The action performed by the user. Valid values include: - `create` - `update` - `destroy` 
+  ///
+  /// * [int] userId:
+  ///   The ID of the user who performed the database change
+  Future<Response> getAuditLogsWithHttpInfo({ int? limit, int? offset, String? sortBy, int? auditableId, String? auditableType, String? actionType, int? userId, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/audit_logs';
 
-    // verify required params are set
+    // ignore: prefer_final_locals
+    Object? postBody;
 
-    // create path and map variables
-    String path = "/audit_logs".replaceAll("{format}","json");
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "limit", limit));
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
-    if(offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
     }
-    if(sortBy != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "sort_by", sortBy));
+    if (sortBy != null) {
+      queryParams.addAll(_queryParams('', 'sort_by', sortBy));
     }
-    if(auditableId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "auditable_id", auditableId));
+    if (auditableId != null) {
+      queryParams.addAll(_queryParams('', 'auditable_id', auditableId));
     }
-    if(auditableType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "auditable_type", auditableType));
+    if (auditableType != null) {
+      queryParams.addAll(_queryParams('', 'auditable_type', auditableType));
     }
-    if(actionType != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "action_type", actionType));
+    if (actionType != null) {
+      queryParams.addAll(_queryParams('', 'action_type', actionType));
     }
-    if(userId != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "user_id", userId));
+    if (userId != null) {
+      queryParams.addAll(_queryParams('', 'user_id', userId));
     }
 
-    List<String> contentTypes = [];
+    const contentTypes = <String>[];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
 
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// List all AuditLogs
+  ///
+  /// Gets a list of all `AuditLog` entities.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Limits the results to a specified number, defaults to 50
+  ///
+  /// * [int] offset:
+  ///   Offsets the results to a specified number, defaults to 0
+  ///
+  /// * [String] sortBy:
+  ///   Sorts by the field name and direction provided where the pattern is `FIELD_NAME_DIRECTION`
+  ///
+  /// * [int] auditableId:
+  ///   The unique ID of a model that has associated audit logs
+  ///
+  /// * [String] auditableType:
+  ///   The name of the model that has associated audit logs. Valid values include: - `user` - `device_configuration` - `signin` - `invite` - `watchlist_record` - `account_preference` - `signout` - `host` - `invite_watchlist` - `location_preference` - `parking_lot` - `parking_stall` - `permission_bundle` - `person` - `physical_access_grant` - `physical_access_provider` - `physical_access_rule` - `security_badge_type` - `signin_watchlist` - `user_group_physical_access_rule` - `visitor` - `bulk_data_batch` 
+  ///
+  /// * [String] actionType:
+  ///   The action performed by the user. Valid values include: - `create` - `update` - `destroy` 
+  ///
+  /// * [int] userId:
+  ///   The ID of the user who performed the database change
+  Future<PaginatedAuditLogsListV1?> getAuditLogs({ int? limit, int? offset, String? sortBy, int? auditableId, String? auditableType, String? actionType, int? userId, }) async {
+    final response = await getAuditLogsWithHttpInfo( limit: limit, offset: offset, sortBy: sortBy, auditableId: auditableId, auditableType: auditableType, actionType: actionType, userId: userId, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
-    else {
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedAuditLogsListV1',) as PaginatedAuditLogsListV1;
+    
     }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'PaginatedAuditLogsList') as PaginatedAuditLogsList;
-    } else {
-      return null;
-    }
+    return null;
   }
 }
