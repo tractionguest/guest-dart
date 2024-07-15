@@ -1,402 +1,574 @@
-part of guest_sdk.api;
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.12
 
+// ignore_for_file: unused_element, unused_import
+// ignore_for_file: always_put_required_named_parameters_first
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: lines_longer_than_80_chars
+
+part of openapi.api;
 
 
 class InvitesApi {
-  final ApiClient apiClient;
+  InvitesApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
-  InvitesApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  final ApiClient apiClient;
 
   /// Delete Multiple Invites
   ///
-  /// Queues up a \&quot;delete\&quot; background task for one or more &#x60;Invite&#x60; entities.
-  Future<BatchJob> batchDeleteInvites({ IdentifierList identifierList }) async {
-    Object postBody = identifierList;
+  /// Queues up a \"delete\" background task for one or more `Invite` entities.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [IdentifierListV1] identifierListV1:
+  ///   
+  Future<Response> batchDeleteInvitesWithHttpInfo({ IdentifierListV1? identifierListV1, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/invites/batch_delete';
 
-    // verify required params are set
+    // ignore: prefer_final_locals
+    Object? postBody = identifierListV1;
 
-    // create path and map variables
-    String path = "/invites/batch_delete".replaceAll("{format}","json");
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
+    const contentTypes = <String>['application/json'];
 
-    List<String> contentTypes = ["application/json"];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'BatchJob') as BatchJob;
-    } else {
-      return null;
-    }
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
+
+  /// Delete Multiple Invites
+  ///
+  /// Queues up a \"delete\" background task for one or more `Invite` entities.
+  ///
+  /// Parameters:
+  ///
+  /// * [IdentifierListV1] identifierListV1:
+  ///   
+  Future<BatchJobV1?> batchDeleteInvites({ IdentifierListV1? identifierListV1, }) async {
+    final response = await batchDeleteInvitesWithHttpInfo( identifierListV1: identifierListV1, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'BatchJobV1',) as BatchJobV1;
+    
+    }
+    return null;
+  }
+
   /// Create an Invite
   ///
-  /// Creates a new &#x60;Invite&#x60; for a specific &#x60;Location&#x60;.
-  Future<InviteDetail> createLocationInvite(String locationId, InviteCreateParams inviteCreateParams, { String idempotencyKey }) async {
-    Object postBody = inviteCreateParams;
+  /// Creates a new `Invite` for a specific `Location`.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] locationId (required):
+  ///
+  /// * [InviteCreateParamsV1] inviteCreateParamsV1 (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<Response> createLocationInviteWithHttpInfo(String locationId, InviteCreateParamsV1 inviteCreateParamsV1, { String? idempotencyKey, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/locations/{location_id}/invites'
+      .replaceAll('{location_id}', locationId);
 
-    // verify required params are set
-    if(locationId == null) {
-     throw new ApiException(400, "Missing required param: locationId");
-    }
-    if(inviteCreateParams == null) {
-     throw new ApiException(400, "Missing required param: inviteCreateParams");
-    }
+    // ignore: prefer_final_locals
+    Object? postBody = inviteCreateParamsV1;
 
-    // create path and map variables
-    String path = "/locations/{location_id}/invites".replaceAll("{format}","json").replaceAll("{" + "location_id" + "}", locationId.toString());
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Idempotency-Key"] = idempotencyKey;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
+    if (idempotencyKey != null) {
+      headerParams[r'Idempotency-Key'] = parameterToString(idempotencyKey);
     }
 
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    const contentTypes = <String>['application/json'];
 
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
-    } else {
-      return null;
-    }
+
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
+
+  /// Create an Invite
+  ///
+  /// Creates a new `Invite` for a specific `Location`.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] locationId (required):
+  ///
+  /// * [InviteCreateParamsV1] inviteCreateParamsV1 (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<InviteDetailV1?> createLocationInvite(String locationId, InviteCreateParamsV1 inviteCreateParamsV1, { String? idempotencyKey, }) async {
+    final response = await createLocationInviteWithHttpInfo(locationId, inviteCreateParamsV1,  idempotencyKey: idempotencyKey, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InviteDetailV1',) as InviteDetailV1;
+    
+    }
+    return null;
+  }
+
   /// Create an Invite from a Registration
   ///
-  /// Creates a new &#x60;Invite&#x60; from &#x60;Registration&#x60; data.
-  Future<InviteDetail> createRegistrationInvite(String registrationId, { String idempotencyKey }) async {
-    Object postBody;
+  /// Creates a new `Invite` from `Registration` data.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] registrationId (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<Response> createRegistrationInviteWithHttpInfo(String registrationId, { String? idempotencyKey, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/registrations/{registration_id}/invites'
+      .replaceAll('{registration_id}', registrationId);
 
-    // verify required params are set
-    if(registrationId == null) {
-     throw new ApiException(400, "Missing required param: registrationId");
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (idempotencyKey != null) {
+      headerParams[r'Idempotency-Key'] = parameterToString(idempotencyKey);
     }
 
-    // create path and map variables
-    String path = "/registrations/{registration_id}/invites".replaceAll("{format}","json").replaceAll("{" + "registration_id" + "}", registrationId.toString());
+    const contentTypes = <String>[];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Idempotency-Key"] = idempotencyKey;
 
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'POST',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
-    } else {
-      return null;
-    }
+    return apiClient.invokeAPI(
+      path,
+      'POST',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
+
+  /// Create an Invite from a Registration
+  ///
+  /// Creates a new `Invite` from `Registration` data.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] registrationId (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<InviteDetailV1?> createRegistrationInvite(String registrationId, { String? idempotencyKey, }) async {
+    final response = await createRegistrationInviteWithHttpInfo(registrationId,  idempotencyKey: idempotencyKey, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InviteDetailV1',) as InviteDetailV1;
+    
+    }
+    return null;
+  }
+
   /// Deletes an Invite
   ///
-  /// Deletes a single instance of &#x60;Invite&#x60;
-  Future deleteInvite(String inviteId, { String idempotencyKey }) async {
-    Object postBody;
+  /// Deletes a single instance of `Invite`
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] inviteId (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<Response> deleteInviteWithHttpInfo(String inviteId, { String? idempotencyKey, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/invites/{invite_id}'
+      .replaceAll('{invite_id}', inviteId);
 
-    // verify required params are set
-    if(inviteId == null) {
-     throw new ApiException(400, "Missing required param: inviteId");
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (idempotencyKey != null) {
+      headerParams[r'Idempotency-Key'] = parameterToString(idempotencyKey);
     }
 
-    // create path and map variables
-    String path = "/invites/{invite_id}".replaceAll("{format}","json").replaceAll("{" + "invite_id" + "}", inviteId.toString());
+    const contentTypes = <String>[];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Idempotency-Key"] = idempotencyKey;
 
-    List<String> contentTypes = [];
+    return apiClient.invokeAPI(
+      path,
+      'DELETE',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'DELETE',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-    } else {
-      return;
+  /// Deletes an Invite
+  ///
+  /// Deletes a single instance of `Invite`
+  ///
+  /// Parameters:
+  ///
+  /// * [String] inviteId (required):
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<void> deleteInvite(String inviteId, { String? idempotencyKey, }) async {
+    final response = await deleteInviteWithHttpInfo(inviteId,  idempotencyKey: idempotencyKey, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
   }
+
   /// Get an Invite
   ///
-  /// Gets the details of a single instance of a &#x60;Invite&#x60;.
-  Future<InviteDetail> getInvite(String inviteId, { String include }) async {
-    Object postBody;
+  /// Gets the details of a single instance of a `Invite`.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] inviteId (required):
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include i.e., 'assigned_stall'
+  Future<Response> getInviteWithHttpInfo(String inviteId, { String? include, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/invites/{invite_id}'
+      .replaceAll('{invite_id}', inviteId);
 
-    // verify required params are set
-    if(inviteId == null) {
-     throw new ApiException(400, "Missing required param: inviteId");
+    // ignore: prefer_final_locals
+    Object? postBody;
+
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
+
+    if (include != null) {
+      queryParams.addAll(_queryParams('', 'include', include));
     }
 
-    // create path and map variables
-    String path = "/invites/{invite_id}".replaceAll("{format}","json").replaceAll("{" + "invite_id" + "}", inviteId.toString());
+    const contentTypes = <String>[];
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(include != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "include", include));
-    }
 
-    List<String> contentTypes = [];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
-    } else {
-      return null;
-    }
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
+
+  /// Get an Invite
+  ///
+  /// Gets the details of a single instance of a `Invite`.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] inviteId (required):
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include i.e., 'assigned_stall'
+  Future<InviteDetailV1?> getInvite(String inviteId, { String? include, }) async {
+    final response = await getInviteWithHttpInfo(inviteId,  include: include, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InviteDetailV1',) as InviteDetailV1;
+    
+    }
+    return null;
+  }
+
   /// List all Invites
   ///
-  /// Gets a list of all &#x60;Invite&#x60; entities.
-  Future<PaginatedInvitesList> getInvites({ int limit, int offset, String query, String withColours, String locationIds, String sortBy, DateTime startsBefore, DateTime startsAfter, String include, bool isApproved, DateTime activeAfter, DateTime activeBefore }) async {
-    Object postBody;
+  /// Gets a list of all `Invite` entities.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Limits the results to a specified number, defaults to 50
+  ///
+  /// * [int] offset:
+  ///   Offsets the results to a specified number, defaults to 0
+  ///
+  /// * [String] query:
+  ///   Filters by `first_name`, `last_name`, `company`, and `email`
+  ///
+  /// * [String] withColours:
+  ///   A comma separated list of case-insensitive colour values. i.e., `red`, `green`, `yellow`, and `orange`
+  ///
+  /// * [String] locationIds:
+  ///   A comma separated list of Location IDs
+  ///
+  /// * [String] sortBy:
+  ///   Sorts by the field name and direction provided where the pattern is `FIELD_NAME_DIRECTION`
+  ///
+  /// * [DateTime] startsBefore:
+  ///   Filters results to all those *before* the provided datetime
+  ///
+  /// * [DateTime] startsAfter:
+  ///   Filters results to all those *after* the provided datetime
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include i.e., 'assigned_stall'
+  ///
+  /// * [bool] isApproved:
+  ///   True to return approved and auto approved invites, False to return pending and rejected invites
+  ///
+  /// * [DateTime] activeAfter:
+  ///   Checks that an invite hasn't yet started, or has started and is still active after a specified time
+  ///
+  /// * [DateTime] activeBefore:
+  ///   Checks that an invite hasn't ended before a specified time
+  Future<Response> getInvitesWithHttpInfo({ int? limit, int? offset, String? query, String? withColours, String? locationIds, String? sortBy, DateTime? startsBefore, DateTime? startsAfter, String? include, bool? isApproved, DateTime? activeAfter, DateTime? activeBefore, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/invites';
 
-    // verify required params are set
+    // ignore: prefer_final_locals
+    Object? postBody;
 
-    // create path and map variables
-    String path = "/invites".replaceAll("{format}","json");
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    if(limit != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "limit", limit));
+    if (limit != null) {
+      queryParams.addAll(_queryParams('', 'limit', limit));
     }
-    if(offset != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "offset", offset));
+    if (offset != null) {
+      queryParams.addAll(_queryParams('', 'offset', offset));
     }
-    if(query != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "query", query));
+    if (query != null) {
+      queryParams.addAll(_queryParams('', 'query', query));
     }
-    if(withColours != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "with_colours", withColours));
+    if (withColours != null) {
+      queryParams.addAll(_queryParams('', 'with_colours', withColours));
     }
-    if(locationIds != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "location_ids", locationIds));
+    if (locationIds != null) {
+      queryParams.addAll(_queryParams('', 'location_ids', locationIds));
     }
-    if(sortBy != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "sort_by", sortBy));
+    if (sortBy != null) {
+      queryParams.addAll(_queryParams('', 'sort_by', sortBy));
     }
-    if(startsBefore != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "starts_before", startsBefore));
+    if (startsBefore != null) {
+      queryParams.addAll(_queryParams('', 'starts_before', startsBefore));
     }
-    if(startsAfter != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "starts_after", startsAfter));
+    if (startsAfter != null) {
+      queryParams.addAll(_queryParams('', 'starts_after', startsAfter));
     }
-    if(include != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "include", include));
+    if (include != null) {
+      queryParams.addAll(_queryParams('', 'include', include));
     }
-    if(isApproved != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "is_approved", isApproved));
+    if (isApproved != null) {
+      queryParams.addAll(_queryParams('', 'is_approved', isApproved));
     }
-    if(activeAfter != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "active_after", activeAfter));
+    if (activeAfter != null) {
+      queryParams.addAll(_queryParams('', 'active_after', activeAfter));
     }
-    if(activeBefore != null) {
-      queryParams.addAll(_convertParametersForCollectionFormat("", "active_before", activeBefore));
+    if (activeBefore != null) {
+      queryParams.addAll(_queryParams('', 'active_before', activeBefore));
     }
 
-    List<String> contentTypes = [];
+    const contentTypes = <String>[];
 
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
 
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
-    }
-
-    var response = await apiClient.invokeAPI(path,
-                                             'GET',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
-
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'PaginatedInvitesList') as PaginatedInvitesList;
-    } else {
-      return null;
-    }
+    return apiClient.invokeAPI(
+      path,
+      'GET',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
   }
+
+  /// List all Invites
+  ///
+  /// Gets a list of all `Invite` entities.
+  ///
+  /// Parameters:
+  ///
+  /// * [int] limit:
+  ///   Limits the results to a specified number, defaults to 50
+  ///
+  /// * [int] offset:
+  ///   Offsets the results to a specified number, defaults to 0
+  ///
+  /// * [String] query:
+  ///   Filters by `first_name`, `last_name`, `company`, and `email`
+  ///
+  /// * [String] withColours:
+  ///   A comma separated list of case-insensitive colour values. i.e., `red`, `green`, `yellow`, and `orange`
+  ///
+  /// * [String] locationIds:
+  ///   A comma separated list of Location IDs
+  ///
+  /// * [String] sortBy:
+  ///   Sorts by the field name and direction provided where the pattern is `FIELD_NAME_DIRECTION`
+  ///
+  /// * [DateTime] startsBefore:
+  ///   Filters results to all those *before* the provided datetime
+  ///
+  /// * [DateTime] startsAfter:
+  ///   Filters results to all those *after* the provided datetime
+  ///
+  /// * [String] include:
+  ///   A list of comma-separated related models to include i.e., 'assigned_stall'
+  ///
+  /// * [bool] isApproved:
+  ///   True to return approved and auto approved invites, False to return pending and rejected invites
+  ///
+  /// * [DateTime] activeAfter:
+  ///   Checks that an invite hasn't yet started, or has started and is still active after a specified time
+  ///
+  /// * [DateTime] activeBefore:
+  ///   Checks that an invite hasn't ended before a specified time
+  Future<PaginatedInvitesListV1?> getInvites({ int? limit, int? offset, String? query, String? withColours, String? locationIds, String? sortBy, DateTime? startsBefore, DateTime? startsAfter, String? include, bool? isApproved, DateTime? activeAfter, DateTime? activeBefore, }) async {
+    final response = await getInvitesWithHttpInfo( limit: limit, offset: offset, query: query, withColours: withColours, locationIds: locationIds, sortBy: sortBy, startsBefore: startsBefore, startsAfter: startsAfter, include: include, isApproved: isApproved, activeAfter: activeAfter, activeBefore: activeBefore, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+    }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'PaginatedInvitesListV1',) as PaginatedInvitesListV1;
+    
+    }
+    return null;
+  }
+
   /// Update an Invite
   ///
-  /// Updates an existing &#x60;Invite&#x60;.
-  Future<InviteDetail> updateInvite(String inviteId, InviteUpdateParams inviteUpdateParams, { String idempotencyKey }) async {
-    Object postBody = inviteUpdateParams;
+  /// Updates an existing `Invite`.
+  ///
+  /// Note: This method returns the HTTP [Response].
+  ///
+  /// Parameters:
+  ///
+  /// * [String] inviteId (required):
+  ///
+  /// * [InviteUpdateParamsV1] inviteUpdateParamsV1 (required):
+  ///   Updated `Invite` information.
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<Response> updateInviteWithHttpInfo(String inviteId, InviteUpdateParamsV1 inviteUpdateParamsV1, { String? idempotencyKey, }) async {
+    // ignore: prefer_const_declarations
+    final path = r'/invites/{invite_id}'
+      .replaceAll('{invite_id}', inviteId);
 
-    // verify required params are set
-    if(inviteId == null) {
-     throw new ApiException(400, "Missing required param: inviteId");
-    }
-    if(inviteUpdateParams == null) {
-     throw new ApiException(400, "Missing required param: inviteUpdateParams");
-    }
+    // ignore: prefer_final_locals
+    Object? postBody = inviteUpdateParamsV1;
 
-    // create path and map variables
-    String path = "/invites/{invite_id}".replaceAll("{format}","json").replaceAll("{" + "invite_id" + "}", inviteId.toString());
+    final queryParams = <QueryParam>[];
+    final headerParams = <String, String>{};
+    final formParams = <String, String>{};
 
-    // query params
-    List<QueryParam> queryParams = [];
-    Map<String, String> headerParams = {};
-    Map<String, String> formParams = {};
-    headerParams["Idempotency-Key"] = idempotencyKey;
-
-    List<String> contentTypes = ["application/json"];
-
-    String contentType = contentTypes.isNotEmpty ? contentTypes[0] : "application/json";
-    List<String> authNames = ["TractionGuestAuth"];
-
-    if(contentType.startsWith("multipart/form-data")) {
-      bool hasFields = false;
-      MultipartRequest mp = new MultipartRequest(null, null);
-      if(hasFields)
-        postBody = mp;
-    }
-    else {
+    if (idempotencyKey != null) {
+      headerParams[r'Idempotency-Key'] = parameterToString(idempotencyKey);
     }
 
-    var response = await apiClient.invokeAPI(path,
-                                             'PUT',
-                                             queryParams,
-                                             postBody,
-                                             headerParams,
-                                             formParams,
-                                             contentType,
-                                             authNames);
+    const contentTypes = <String>['application/json'];
 
-    if(response.statusCode >= 400) {
-      throw new ApiException(response.statusCode, _decodeBodyBytes(response));
-    } else if(response.body != null) {
-      return apiClient.deserialize(_decodeBodyBytes(response), 'InviteDetail') as InviteDetail;
-    } else {
-      return null;
+
+    return apiClient.invokeAPI(
+      path,
+      'PUT',
+      queryParams,
+      postBody,
+      headerParams,
+      formParams,
+      contentTypes.isEmpty ? null : contentTypes.first,
+    );
+  }
+
+  /// Update an Invite
+  ///
+  /// Updates an existing `Invite`.
+  ///
+  /// Parameters:
+  ///
+  /// * [String] inviteId (required):
+  ///
+  /// * [InviteUpdateParamsV1] inviteUpdateParamsV1 (required):
+  ///   Updated `Invite` information.
+  ///
+  /// * [String] idempotencyKey:
+  ///   An optional idempotency key to allow for repeat API requests. Any API request with this key will only be executed once, no matter how many times it's submitted. We store idempotency keys for only 24 hours. Any `Idempotency-Key` shorter than 10 characters will be ignored
+  Future<InviteDetailV1?> updateInvite(String inviteId, InviteUpdateParamsV1 inviteUpdateParamsV1, { String? idempotencyKey, }) async {
+    final response = await updateInviteWithHttpInfo(inviteId, inviteUpdateParamsV1,  idempotencyKey: idempotencyKey, );
+    if (response.statusCode >= HttpStatus.badRequest) {
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
     }
+    // When a remote server returns no body with a status of 204, we shall not decode it.
+    // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
+    // FormatException when trying to decode an empty string.
+    if (response.body.isNotEmpty && response.statusCode != HttpStatus.noContent) {
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'InviteDetailV1',) as InviteDetailV1;
+    
+    }
+    return null;
   }
 }
